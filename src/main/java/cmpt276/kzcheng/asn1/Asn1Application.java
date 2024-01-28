@@ -11,3 +11,5 @@ public class Asn1Application {
 	}
 
 }
+
+// Spring is running the server on localhost.
