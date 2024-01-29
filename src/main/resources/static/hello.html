@@ -6,8 +6,74 @@
     <title>My webpage</title>
 </head>
 <body>
-    <h1>MY WEBPAGE</h1>
-    <p>HELLO WORLD!!</p>
+    <header>
+        LOGO
+        <nav class="sec1">
+            <a href="./home.html">HOME</a> <br>
+            <!-- Linking to page on site. -->
+            <a href="https://www.sfu.ca">PRODUCTS</a> <br>
+            <!-- Linking to page oof this site -->
+            <a href="">ABOUT</a>
+        </nav>
+    </header>
+    <main id="mainpart">
+        <!-- ID is also a label. -->
+        <!-- However, only one thing can have each ID label. -->
+        <!-- Visiting http://localhost:8080/hello.html#mainpart will automatically scroll to this part of the page. -->
+        <h1>HEADER TEXT</h1>
+        <section class="sec1">
+            <!-- Class is a label. -->
+            <!-- Class means "Classification". -->
+            <!-- Multiple things can all be labeled the same class. -->
+            text for section 1
+        </section>
+        <section class="sec2">
+            text for section 2
+        </section>
+        <form action="/submit">
+            <!-- Form is a special type of section that contains input fields, which are used to send data to the server. -->
+            <!-- action="/submit" defines the endpoint that the data will be sent to. -->
+            <fieldset> 
+                <!-- Should often contain the information of a form, not required. -->
+                <legend>INFO</legend> 
+                <!-- Like the title of the form. -->
+                USERNAME: <input name="uname" type="text"> 
+                <!-- Input field, uname is the variable name. -->
+                <input type="submit" value="SEND"> 
+                <!-- Submit button. -->
+            </fieldset>
+            <!-- When hitting SEND, the data will be sent to an endpoint called "/submit". -->
+        </form>
+        <table>
+            <!-- Used to display information in a grid. -->
+            <tr>
+                <!-- Table row. -->
+                <th>Name</th>
+                <th>Age</th>
+                <th>Password</th>
+                <!-- Table headers, the headers of each column. -->
+            </tr>
+            <tr>
+                <td>Kevin</td>
+                <td>24</td>
+                <td>123456</td>
+                <!-- Table data, the data inside each cell. -->
+            </tr>
+            <tr>
+                <td>Bob</td>
+                <td>25</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>26</td>
+                <td>123456</td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        Copyright Kevin 2024
+    </footer>
 </body>
 </html>
 
