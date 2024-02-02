@@ -30,10 +30,9 @@ function loadQuestionDataFromHTML(qList) {
         qList[i] = {}
         qList[i].self = document.querySelector(`#q${i}`)
         qList[i].qText = qList[i].self.querySelector(".qText").textContent
-        qList[i].aList = [...qList[i].self.querySelectorAll(".choices button")].reduce((obj, button, index) => {
-            obj[index + 1] = button.textContent
-            return obj
-        }, {})
+        qList[i].aList = Array.from(qList[i].self.querySelectorAll(".choices button")).map((button, index) => {
+            return button.textContent;
+        });
         // When the user hasn't answered the question yet, aUser = 0
         qList[i].aUser = 0
     }
