@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,86 +8,94 @@
     <link rel="stylesheet" href="/css/quizApp.css">
     <script src="/js/quizLogic.js" defer></script>
 </head>
+
 <body>
     <header>
         <h1>Interactive Quiz</h1>
     </header>
 
     <main>
-        <div id="question1">
-            <h2>Question 1</h2>
-            <h3 class="question">Answer is A?</h3>
-            <div class="choices">
-                <button class="answer1">A</button>
-                <button class="answer2">B</button>
-                <button class="answer3">C</button>
-                <button class="answer4">D</button>
-                <button class="answer5">E</button>
+        <div id="qBlock">
+            <div id="question1">
+                <h2>Question 1</h2>
+                <h3 class="question">Answer is A?</h3>
+                <div class="choices">
+                    <button class="answer1">A</button>
+                    <button class="answer2">B</button>
+                    <button class="answer3">C</button>
+                    <button class="answer4">D</button>
+                    <button class="answer5">E</button>
+                </div>
+                <div class="trueAnswer">
+                    <h3>Correct Answer: A</h3>
+                </div>
             </div>
-            <div class="trueAnswer">
-                <h3>Correct Answer: A</h3>
+            <div id="question2">
+                <h2>Question 2</h2>
+                <h3 class="question">Answer is B?</h3>
+                <div class="choices">
+                    <button class="answer1">A</button>
+                    <button class="answer2">B</button>
+                    <button class="answer3">C</button>
+                    <button class="answer4">D</button>
+                    <button class="answer5">E</button>
+                </div>
+                <div class="trueAnswer">
+                    <h3>Correct Answer: B</h3>
+                </div>
             </div>
-        </div>
-        <div id="question2">
-            <h2>Question 2</h2>
-            <h3 class="question">Answer is B?</h3>
-            <div class="choices">
-                <button class="answer1">A</button>
-                <button class="answer2">B</button>
-                <button class="answer3">C</button>
-                <button class="answer4">D</button>
-                <button class="answer5">E</button>
+            <div id="question3">
+                <h2>Question 3</h2>
+                <h3 class="question">Answer is C?</h3>
+                <div class="choices">
+                    <button class="answer1">A</button>
+                    <button class="answer2">B</button>
+                    <button class="answer3">C</button>
+                    <button class="answer4">D</button>
+                    <button class="answer5">E</button>
+                </div>
+                <div class="trueAnswer">
+                    <h3>Correct Answer: C</h3>
+                </div>
             </div>
-            <div class="trueAnswer">
-                <h3>Correct Answer: B</h3>
+            <div id="question4">
+                <h2>Question 4</h2>
+                <h3 class="question">Answer is D?</h3>
+                <div class="choices">
+                    <button class="answer1">A</button>
+                    <button class="answer2">B</button>
+                    <button class="answer3">C</button>
+                    <button class="answer4">D</button>
+                    <button class="answer5">E</button>
+                </div>
+                <div class="trueAnswer">
+                    <h3>Correct Answer: D</h3>
+                </div>
             </div>
-        </div>
-        <div id="question3">
-            <h2>Question 3</h2>
-            <h3 class="question">Answer is C?</h3>
-            <div class="choices">
-                <button class="answer1">A</button>
-                <button class="answer2">B</button>
-                <button class="answer3">C</button>
-                <button class="answer4">D</button>
-                <button class="answer5">E</button>
+            <div id="question5">
+                <h2>Question 5</h2>
+                <h3 class="question">Answer is E?</h3>
+                <div class="choices">
+                    <button class="answer1">A</button>
+                    <button class="answer2">B</button>
+                    <button class="answer3">C</button>
+                    <button class="answer4">D</button>
+                    <button class="answer5">E</button>
+                </div>
+                <div class="trueAnswer">
+                    <h3>Correct Answer: E</h3>
+                </div>
             </div>
-            <div class="trueAnswer">
-                <h3>Correct Answer: C</h3>
-            </div>
-        </div>
-        <div id="question4">
-            <h2>Question 4</h2>
-            <h3 class="question">Answer is D?</h3>
-            <div class="choices">
-                <button class="answer1">A</button>
-                <button class="answer2">B</button>
-                <button class="answer3">C</button>
-                <button class="answer4">D</button>
-                <button class="answer5">E</button>
-            </div>
-            <div class="trueAnswer">
-                <h3>Correct Answer: D</h3>
-            </div>
-        </div>
-        <div id="question5">
-            <h2>Question 5</h2>
-            <h3 class="question">Answer is E?</h3>
-            <div class="choices">
-                <button class="answer1">A</button>
-                <button class="answer2">B</button>
-                <button class="answer3">C</button>
-                <button class="answer4">D</button>
-                <button class="answer5">E</button>
-            </div>
-            <div class="trueAnswer">
-                <h3>Correct Answer: E</h3>
+            <div>
+                <button id="bPrev">Previous</button>
+                <button id="bNext">Next</button>
             </div>
         </div>
     </main>
 
     <footer>
-        Made by Kevin Cheng for CMPT276
+        @2024 Made by Kevin Cheng for CMPT276
     </footer>
 </body>
+
 </html>

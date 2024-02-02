@@ -54,6 +54,17 @@ loadTrueAnswersHardcoded()
 
 console.log(qList)
 
+qList[1].self.style.display = "block"
+
+// 
+// 
+// Event Listeners
+
+
+
+// 
+// 
+// Functions
 function loadQuestionDataFromHTML(qList) {
     for (let i = 1; i <= 5; i++) {
         // haha array starts at 1 go brrr!
@@ -68,11 +79,6 @@ function loadQuestionDataFromHTML(qList) {
             return obj
         }, {})
     }
-
-    // document.querySelector("#question").textContent = questions[questionNumber].question
-    // for (let i = 1; i <= 5; i++) {
-    //     document.querySelector(`#choice${i}`).textContent = questions[questionNumber].answers[i]
-    // }
 }
 
 function loadTrueAnswersHardcoded() {
