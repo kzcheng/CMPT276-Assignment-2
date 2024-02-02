@@ -104,3 +104,5 @@ button.addEventListener("click", function(evt) {
     var text = document.getElementById("fname").value
     document.getElementsByTagName("legend")[0].innerHTML = text 
 })
+
+// Ok cool everything works now time to actually begin the project.
