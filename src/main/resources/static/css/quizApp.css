@@ -2,3 +2,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#question1, #question2, #question3, #question4, #question5 {
+    display: none;
+}
