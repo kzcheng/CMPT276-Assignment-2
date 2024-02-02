@@ -10,9 +10,12 @@ footer {
 #q2,
 #q3,
 #q4,
-#q5,
-#bSubmit {
+#q5 {
     display: none;
+}
+
+#bSubmit {
+    visibility: hidden;
 }
 
 #qBlock {
