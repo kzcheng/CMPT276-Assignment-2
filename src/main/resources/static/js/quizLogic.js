@@ -45,7 +45,12 @@
 //     },
 // ];
 
+//
+//
+// Variables
 var qList = []
+// When currentQuestion = -1, the quiz is over.
+var currentQuestion = 1
 
 loadQuestionDataFromHTML(qList)
 
@@ -56,14 +61,12 @@ console.log(qList)
 
 qList[1].self.style.display = "block"
 
-// 
-// 
+//
+//
 // Event Listeners
 
-
-
-// 
-// 
+//
+//
 // Functions
 function loadQuestionDataFromHTML(qList) {
     for (let i = 1; i <= 5; i++) {
@@ -72,12 +75,14 @@ function loadQuestionDataFromHTML(qList) {
         // Am I like, declaring a new object every time globally without var or let?
         // I guess it should be fine? Since qList itself is declared with var.
         qList[i] = {}
-        qList[i].self = document.querySelector(`#question${i}`)
+        qList[i].self = document.querySelector(`#q${i}`)
         qList[i].qText = qList[i].self.querySelector(".question").textContent
-        qList[i].aList = [...qList[i].self.querySelectorAll('.choices button')].reduce((obj, button, index) => {
+        qList[i].aList = [...qList[i].self.querySelectorAll(".choices button")].reduce((obj, button, index) => {
             obj[index + 1] = button.textContent
             return obj
         }, {})
+        // When the user hasn't answered the question yet, aUser = 0
+        qList[i].aUser = 0
     }
 }
 

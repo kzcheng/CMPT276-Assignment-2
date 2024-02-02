@@ -6,11 +6,11 @@ footer {
     margin-top: 50px;
 }
 
-#question1,
-#question2,
-#question3,
-#question4,
-#question5 {
+#q1,
+#q2,
+#q3,
+#q4,
+#q5 {
     display: none;
 }
 
