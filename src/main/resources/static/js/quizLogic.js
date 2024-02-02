@@ -14,11 +14,23 @@ console.log(qList)
 //     console.log(question.self)
 // })
 
-qList[1].self.style.display = "block"
+qList[0].self.style.display = "block"
 
 //
 //
 // Event Listeners
+document.querySelector("#bNext").addEventListener("click", () => {
+    console.log("Next button clicked.")
+    displayQuestion(2)
+})
+
+document.querySelector("#bPrev").addEventListener("click", () => {
+    console.log("Previous button clicked.")
+})
+
+document.querySelector("#bSubmit").addEventListener("click", () => {
+    console.log("Submit button clicked.")
+})
 
 //
 //
@@ -43,4 +55,8 @@ function loadTrueAnswersHardcoded() {
     qList[2].aTrue = 3
     qList[3].aTrue = 4
     qList[4].aTrue = 5
+}
+
+function displayQuestion(i) {
+    qList[i - 1].self.style.display = "block"
 }

@@ -10,7 +10,8 @@ footer {
 #q2,
 #q3,
 #q4,
-#q5 {
+#q5,
+#bSubmit {
     display: none;
 }
 
