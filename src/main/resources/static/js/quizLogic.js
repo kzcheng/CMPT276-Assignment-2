@@ -1,6 +1,14 @@
+/**
+ * This file contains the logic for a quiz application.
+ * It includes functions to load question data from HTML, display questions, check completion status, submit the quiz, and more.
+ * The user can navigate through the questions, select an answer, and submit the quiz to see the result.
+ * The result is displayed with the score and the correct answers highlighted.
+ * The file also includes event listeners for navigation buttons and answer buttons.
+ */
+
 //
 //
-// -- Global Variables and Main Code --
+// #region -- Global Variables and Main Code --
 var qList = loadQuestionDataFromHTML()
 var currentQID = 0
 // Boolean flag to indicate if all questions have been answered.
@@ -13,25 +21,35 @@ loadTrueAnswersHardcoded()
 refreshQuestionBlock()
 
 console.log(qList)
-// Uncomment to fill answers for testing.
+
+// Uncomment this to fill answers for testing.
 // qList.every((question) => (question.aUser = 2))
+
+// #endregion
 
 //
 //
-// -- Event Listeners --
+// #region -- Event Listeners --
 addNavigationListeners()
 addAnswerButtonListeners()
 addSubmitButtonListener()
+// #endregion
 
 //
 //
-// -- Functions --
+// #region -- Functions --
+/**
+ * Loads question data from HTML and returns an array of question objects.
+ * @returns {Array} The array of question objects.
+ */
 function loadQuestionDataFromHTML() {
     return Array.from({ length: 5 }, (_, i) => {
         let self = document.querySelector(`#question${i + 1}`)
         return {
             self: self,
-            questionText: self.querySelector(".questionText").textContent,
+            // q usually means "question" and a usually means "answer".
+            // If quiz needs to be referred to, use "quiz" instead.
+            qText: self.querySelector(".questionText").textContent,
             aList: Array.from(self.querySelectorAll(".choices button")).map((button) => button.textContent),
             // When the user hasn't answered the question yet, aUser = -1.
             aUser: -1,
@@ -39,6 +57,9 @@ function loadQuestionDataFromHTML() {
     })
 }
 
+/**
+ * Loads the true answers for the quiz questions by hardcoding the values.
+ */
 function loadTrueAnswersHardcoded() {
     qList[0].aTrue = 0
     qList[1].aTrue = 1
@@ -47,20 +68,32 @@ function loadTrueAnswersHardcoded() {
     qList[4].aTrue = 4
 }
 
+/**
+ * Refreshes the question block by hiding all questions, displaying the current question, and checking if the submit button should be displayed.
+ */
 function refreshQuestionBlock() {
     hideQuestions()
     displayQuestion(currentQID)
     checkIfDisplaySubmit()
 }
 
+/**
+ * Hides all the questions in the quiz.
+ */
 function hideQuestions() {
-    return qList.forEach((question) => {
+    qList.forEach((question) => {
         question.self.style.display = "none"
     })
 }
 
+/**
+ * Displays a question based on the given ID.
+ * Updates the user's answer display and enables/disables the next and previous buttons accordingly.
+ * @param {number} id - The ID of the question to display.
+ */
 function displayQuestion(id) {
     qList[id].self.style.display = "block"
+    // Update the user's answer displayed.
     qList[id].self.querySelector(".userAnswer").textContent = `Your Answer: ${qList[id].aUser === -1 ? " " : qList[id].aList[qList[id].aUser]}`
 
     if (quizSubmitted) return
@@ -78,6 +111,10 @@ function displayQuestion(id) {
     }
 }
 
+/**
+ * Checks if the submit button should be displayed based on the quiz submission status and completion status.
+ * @returns {boolean} True if the submit button should be displayed, false otherwise.
+ */
 function checkIfDisplaySubmit() {
     if (!quizSubmitted && checkCompletion()) {
         document.querySelector("#bSubmit").disabled = false
@@ -88,6 +125,11 @@ function checkIfDisplaySubmit() {
     }
 }
 
+/**
+ * Checks if the quiz is complete by verifying if all questions have been answered.
+ * The global variable quizComplete is updated accordingly.
+ * @returns {boolean} True if the quiz is complete, false otherwise.
+ */
 function checkCompletion() {
     if (quizComplete) {
         return quizComplete
@@ -97,6 +139,9 @@ function checkCompletion() {
     return quizComplete
 }
 
+/**
+ * Submits the quiz and displays the result.
+ */
 function submitQuiz() {
     quizSubmitted = true
     score = 0
@@ -108,22 +153,22 @@ function submitQuiz() {
     document.querySelector("#resultText").textContent = `You got ${score} out of 5 correct!`
     document.querySelector("#resultBlock").style.display = "block"
 
-    // Disable all answer buttons
+    // Disable all answer buttons.
     document.querySelectorAll(".choices button").forEach((button) => {
         button.disabled = true
     })
 
-    // Hide the next, previous, and submit buttons
+    // Hide the next, previous, and submit buttons.
     document.querySelector("#bNext").style.display = "none"
     document.querySelector("#bPrev").style.display = "none"
     document.querySelector("#bSubmit").style.display = "none"
 
-    // Show all the correct answers
+    // Show all the correct answers.
     document.querySelectorAll(".trueAnswer").forEach((trueAnswer) => {
         trueAnswer.style.display = "block"
     })
 
-    // Also show all the questions
+    // Also show all the questions.
     qList.forEach((question) => {
         question.self.style.display = "block"
     })
@@ -131,6 +176,11 @@ function submitQuiz() {
     colorAnswers()
 }
 
+/**
+ * Colors the answer buttons based on whether the user's answer is correct or not.
+ * If the user's answer is correct, the button stays blue.
+ * If the user's answer is incorrect, the button turns red and the correct answer button turns green.
+ */
 function colorAnswers() {
     qList.forEach((question) => {
         let buttons = question.self.querySelectorAll(".choices button")
@@ -141,6 +191,10 @@ function colorAnswers() {
     })
 }
 
+/**
+ * Adds event listeners to the next and previous buttons for navigation.
+ * Increments or decrements the current question ID and refreshes the question block accordingly.
+ */
 function addNavigationListeners() {
     document.querySelector("#bNext").addEventListener("click", () => {
         console.log("Next button clicked.")
@@ -148,7 +202,6 @@ function addNavigationListeners() {
         console.log(`Moving to question ${currentQID + 1}.`)
         refreshQuestionBlock()
     })
-
     document.querySelector("#bPrev").addEventListener("click", () => {
         console.log("Previous button clicked.")
         currentQID--
@@ -157,6 +210,11 @@ function addNavigationListeners() {
     })
 }
 
+/**
+ * Adds event listeners to the answer buttons for all the questions.
+ * Changes the user's answer and refreshes the question block accordingly.
+ * Also changes the color of the selected button to blue and all other buttons to their default color.
+ */
 function addAnswerButtonListeners() {
     // All the answer buttons for all the questions.
     qList.forEach((question, i) => {
@@ -180,12 +238,17 @@ function addAnswerButtonListeners() {
     })
 }
 
+/**
+ * Adds a listener to the submit button that triggers the submitQuiz function when clicked.
+ * This button should be disabled until the quiz is complete.
+ */
 function addSubmitButtonListener() {
     document.querySelector("#bSubmit").addEventListener("click", () => {
         console.log("Submit button clicked.")
         submitQuiz()
-    });
+    })
 }
+// #endregion
 
 //
 //
