@@ -13,8 +13,8 @@ loadTrueAnswersHardcoded()
 
 console.log(qList)
 
-// Uncomment this to fill answers.
-qList.every((question) => (question.aUser = 2))
+// Uncomment to fill answers for testing.
+// qList.every((question) => (question.aUser = 2))
 
 refreshQuestionBlock()
 
@@ -49,7 +49,7 @@ qList.forEach((question, i) => {
             })
 
             // Change the selected button color
-            button.style.backgroundColor = "rgb(174, 225, 225)"
+            button.style.backgroundColor = "rgb(175, 225, 225)" // Blue
 
             refreshQuestionBlock()
         })
@@ -166,10 +166,19 @@ function submitQuiz() {
         question.self.style.display = "block"
     })
 
-    // refreshQuestionBlock()
+    colorAnswers()
+}
+
+function colorAnswers() {
+    qList.forEach((question) => {
+        let buttons = question.self.querySelectorAll(".choices button")
+        if (question.aTrue !== question.aUser) {
+            buttons[question.aTrue].style.backgroundColor = "rgb(175, 225, 175)" // Green
+            buttons[question.aUser].style.backgroundColor = "rgb(225, 175, 175)" // Red
+        }
+    })
 }
 
 // TODO
-// - Highlighting the user's answer and the correct answer
 // - CSS
 // - Make more sensible questions.
