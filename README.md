@@ -17,4 +17,4 @@ The port when deploying this project to `localhost` have been changed to `9090`.
 ### Commits with Descriptions
 Some commits may have more details in descriptions. Especially ones with more jokingly titles.
 
-![Example](documentationImages/image.png)
+![Example](documentation/image.png)
