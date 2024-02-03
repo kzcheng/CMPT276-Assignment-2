@@ -46,7 +46,7 @@ document.querySelector("#bSubmit").addEventListener("click", () => {
 //
 // Functions
 function loadQuestionDataFromHTML() {
-    qList = Array.from({ length: 5 }, (_, i) => {
+    return Array.from({ length: 5 }, (_, i) => {
         let self = document.querySelector(`#q${i + 1}`)
         return {
             self: self,
@@ -56,9 +56,6 @@ function loadQuestionDataFromHTML() {
             aUser: -1,
         }
     })
-    // Note that returning the global variable qList here is an intentional design choice.
-    // It might not be a good choice, but I do like it.
-    return qList
 }
 
 function loadTrueAnswersHardcoded() {
@@ -83,6 +80,7 @@ function hideQuestions() {
 
 function displayQuestion(id) {
     qList[id].self.style.display = "block"
+    qList[id].self.querySelector(".userAnswer").textContent = `Your Answer: ${qList[id].aUser === -1 ? " " : qList[id].aList[qList[id].aUser]}`
     if (currentQID === 0) {
         document.querySelector("#bNext").style.visibility = "visible"
         document.querySelector("#bPrev").style.visibility = "hidden"
