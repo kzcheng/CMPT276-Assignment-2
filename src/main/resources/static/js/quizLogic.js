@@ -38,6 +38,17 @@ document.querySelector("#bPrev").addEventListener("click", () => {
     refreshQuestionBlock()
 })
 
+// All the answer buttons for all the questions.
+qList.forEach((question, i) => {
+    question.aList.forEach((answer, j) => {
+        question.self.querySelector(`.choices button:nth-child(${j + 1})`).addEventListener("click", () => {
+            console.log(`Question ${i + 1} button ${j + 1} clicked.`)
+            question.aUser = j
+            refreshQuestionBlock()
+        })
+    })
+})
+
 document.querySelector("#bSubmit").addEventListener("click", () => {
     console.log("Submit button clicked.")
 })
