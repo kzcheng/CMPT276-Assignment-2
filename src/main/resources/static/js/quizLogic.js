@@ -1,6 +1,6 @@
 //
 //
-// Variables
+// -- Global Variables and Main Code --
 var qList = loadQuestionDataFromHTML()
 var currentQID = 0
 // Boolean flag to indicate if all questions have been answered.
@@ -10,60 +10,22 @@ var score = 0
 
 // I really wish I didn't choose to store all the data in the HTML file.
 loadTrueAnswersHardcoded()
+refreshQuestionBlock()
 
 console.log(qList)
-
 // Uncomment to fill answers for testing.
 // qList.every((question) => (question.aUser = 2))
 
-refreshQuestionBlock()
+//
+//
+// -- Event Listeners --
+addNavigationListeners()
+addAnswerButtonListeners()
+addSubmitButtonListener()
 
 //
 //
-// Event Listeners
-document.querySelector("#bNext").addEventListener("click", () => {
-    console.log("Next button clicked.")
-    currentQID++
-    console.log(`Moving to question ${currentQID + 1}.`)
-    refreshQuestionBlock()
-})
-
-document.querySelector("#bPrev").addEventListener("click", () => {
-    console.log("Previous button clicked.")
-    currentQID--
-    console.log(`Moving to question ${currentQID + 1}.`)
-    refreshQuestionBlock()
-})
-
-// All the answer buttons for all the questions.
-qList.forEach((question, i) => {
-    question.aList.forEach((answer, j) => {
-        let button = question.self.querySelector(`.choices button:nth-child(${j + 1})`)
-        button.addEventListener("click", () => {
-            console.log(`Question ${i + 1} button ${j + 1} clicked.`)
-            question.aUser = j
-
-            // Change all buttons back to their default color
-            question.self.querySelectorAll(".choices button").forEach((btn) => {
-                btn.style.backgroundColor = ""
-            })
-
-            // Change the selected button color
-            button.style.backgroundColor = "rgb(175, 225, 225)" // Blue
-
-            refreshQuestionBlock()
-        })
-    })
-})
-
-document.querySelector("#bSubmit").addEventListener("click", () => {
-    console.log("Submit button clicked.")
-    submitQuiz()
-})
-
-//
-//
-// Functions
+// -- Functions --
 function loadQuestionDataFromHTML() {
     return Array.from({ length: 5 }, (_, i) => {
         let self = document.querySelector(`#question${i + 1}`)
@@ -179,6 +141,54 @@ function colorAnswers() {
     })
 }
 
-// TODO
+function addNavigationListeners() {
+    document.querySelector("#bNext").addEventListener("click", () => {
+        console.log("Next button clicked.")
+        currentQID++
+        console.log(`Moving to question ${currentQID + 1}.`)
+        refreshQuestionBlock()
+    })
+
+    document.querySelector("#bPrev").addEventListener("click", () => {
+        console.log("Previous button clicked.")
+        currentQID--
+        console.log(`Moving to question ${currentQID + 1}.`)
+        refreshQuestionBlock()
+    })
+}
+
+function addAnswerButtonListeners() {
+    // All the answer buttons for all the questions.
+    qList.forEach((question, i) => {
+        question.aList.forEach((answer, j) => {
+            let button = question.self.querySelector(`.choices button:nth-child(${j + 1})`)
+            button.addEventListener("click", () => {
+                console.log(`Question ${i + 1} button ${j + 1} clicked.`)
+                question.aUser = j
+
+                // Change all buttons back to their default color
+                question.self.querySelectorAll(".choices button").forEach((btn) => {
+                    btn.style.backgroundColor = ""
+                })
+
+                // Change the selected button color
+                button.style.backgroundColor = "rgb(175, 225, 225)" // Blue
+
+                refreshQuestionBlock()
+            })
+        })
+    })
+}
+
+function addSubmitButtonListener() {
+    document.querySelector("#bSubmit").addEventListener("click", () => {
+        console.log("Submit button clicked.")
+        submitQuiz()
+    });
+}
+
+//
+//
+// -- TODO --
 // - CSS
 // - Make more sensible questions.
