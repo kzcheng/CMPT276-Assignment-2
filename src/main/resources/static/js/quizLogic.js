@@ -19,13 +19,10 @@ var score = 0
 // I really wish I didn't choose to store all the data in the HTML file.
 loadTrueAnswersHardcoded()
 
-
 console.log(qList)
 
 // Uncomment this to fill answers for testing.
 qList.every((question) => (question.aUser = 2))
-
-refreshQuestionBlock()
 
 refreshQuestionBlock()
 
@@ -79,6 +76,7 @@ function refreshQuestionBlock() {
     hideQuestions()
     displayQuestion(currentQID)
     checkIfDisplaySubmit()
+    colorAnswers()
 }
 
 /**
@@ -190,9 +188,11 @@ function submitQuiz() {
 function colorAnswers() {
     qList.forEach((question) => {
         let buttons = question.self.querySelectorAll(".choices button")
-        if (question.aTrue !== question.aUser) {
+        if (quizSubmitted && question.aTrue !== question.aUser) {
             buttons[question.aTrue].style.backgroundColor = "rgb(175, 225, 175)" // Green
             buttons[question.aUser].style.backgroundColor = "rgb(225, 175, 175)" // Red
+        } else {
+            buttons[question.aUser].style.backgroundColor = "rgb(175, 225, 225)" // Blue
         }
     })
 }
@@ -203,7 +203,7 @@ function colorAnswers() {
  */
 function separateQuestionsWithLines() {
     qList.forEach((question, i) => {
-        if (i !== qList.length-1) {
+        if (i !== qList.length - 1) {
             let hr = document.createElement("hr")
             question.self.appendChild(hr)
         }
@@ -268,13 +268,11 @@ function addSubmitButtonListener() {
     })
 }
 
-
-
 // #endregion
 
 //
 //
 // -- TODO --
-// - The logic for coloring buttons needs fixing. 
-// - CSS
+// - The logic for coloring buttons needs fixing.
+// - CSS.
 // - Make more sensible questions.
