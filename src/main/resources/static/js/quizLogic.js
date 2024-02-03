@@ -38,19 +38,18 @@ document.querySelector("#bPrev").addEventListener("click", () => {
 // All the answer buttons for all the questions.
 qList.forEach((question, i) => {
     question.aList.forEach((answer, j) => {
-        let button = question.self.querySelector(`.choices button:nth-child(${j + 1})`);
+        let button = question.self.querySelector(`.choices button:nth-child(${j + 1})`)
         button.addEventListener("click", () => {
             console.log(`Question ${i + 1} button ${j + 1} clicked.`)
             question.aUser = j
 
             // Change all buttons back to their default color
-            let allButtons = question.self.querySelectorAll('.choices button');
-            allButtons.forEach((btn) => {
-                btn.style.backgroundColor = "";
-            });
+            question.self.querySelectorAll(".choices button").forEach((btn) => {
+                btn.style.backgroundColor = ""
+            })
 
             // Change the selected button color
-            button.style.backgroundColor = "rgb(174, 225, 225)"; 
+            button.style.backgroundColor = "rgb(174, 225, 225)"
 
             refreshQuestionBlock()
         })
@@ -149,8 +148,8 @@ function submitQuiz() {
 
     // Disable all answer buttons
     document.querySelectorAll(".choices button").forEach((button) => {
-        button.disabled = true;
-    });
+        button.disabled = true
+    })
 
     // Hide the next, previous, and submit buttons
     document.querySelector("#bNext").style.display = "none"
