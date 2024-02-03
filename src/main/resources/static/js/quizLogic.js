@@ -146,3 +146,11 @@ function submitQuiz() {
 
     refreshQuestionBlock()
 }
+
+
+
+// TODO
+// 1. Highlighting the user's answer and the correct answer
+// 2. Upon submitting the quiz, display the user's score and correct answers for each question.
+// 3. CSS
+// 4. Make more sensible questions.
