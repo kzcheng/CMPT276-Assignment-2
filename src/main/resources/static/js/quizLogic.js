@@ -52,10 +52,12 @@ function loadQuestionDataFromHTML() {
             self: self,
             qText: self.querySelector(".qText").textContent,
             aList: Array.from(self.querySelectorAll(".choices button")).map((button) => button.textContent),
-            // When the user hasn't answered the question yet, aUser = -1
+            // When the user hasn't answered the question yet, aUser = -1.
             aUser: -1,
         }
     })
+    // Note that returning the global variable qList here is an intentional design choice.
+    // It might not be a good choice, but I do like it.
     return qList
 }
 
