@@ -19,10 +19,11 @@ var score = 0
 // I really wish I didn't choose to store all the data in the HTML file.
 loadTrueAnswersHardcoded()
 
+
 console.log(qList)
 
 // Uncomment this to fill answers for testing.
-qList.every((question) => (question.aUser = 2))
+// qList.every((question) => (question.aUser = 2))
 
 refreshQuestionBlock()
 
