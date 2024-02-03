@@ -10,7 +10,8 @@ footer {
 #q2,
 #q3,
 #q4,
-#q5 {
+#q5,
+#resultBlock {
     display: none;
 }
 
@@ -18,8 +19,13 @@ footer {
     visibility: hidden;
 }
 
-#qBlock {
+#qBlock,
+#resultBlock {
     border: 1px solid black;
     padding: 20px;
     padding-top: 0px;
+}
+
+#resultBlock {
+    margin-top: 30px;
 }

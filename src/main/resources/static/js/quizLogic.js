@@ -6,6 +6,8 @@ var qList = loadQuestionDataFromHTML()
 var currentQID = 0
 // Boolean flag to indicate if all questions have been answered.
 var quizComplete = false
+var quizSubmitted = false
+var score = 0
 
 // I really wish I didn't choose to store all the data in the HTML file.
 loadTrueAnswersHardcoded()
@@ -16,7 +18,8 @@ console.log(qList)
 //     console.log(question.self)
 // })
 
-// qList.every((question) => question.aUser = 2)
+// Uncomment this to fill answers.
+qList.every((question) => (question.aUser = 2))
 console.log(`checkCompletion: ${checkCompletion()}`)
 
 refreshQuestionBlock()
@@ -51,6 +54,7 @@ qList.forEach((question, i) => {
 
 document.querySelector("#bSubmit").addEventListener("click", () => {
     console.log("Submit button clicked.")
+    submitQuiz()
 })
 
 //
@@ -105,13 +109,31 @@ function displayQuestion(id) {
 }
 
 function checkIfDisplaySubmit() {
-    if (checkCompletion()) {
+    if (!quizSubmitted && checkCompletion()) {
         document.querySelector("#bSubmit").style.visibility = "visible"
+        return true
+    } else {
+        document.querySelector("#bSubmit").style.visibility = "hidden"
+        return false
     }
 }
 
 function checkCompletion() {
+    if (quizComplete) {
+        return quizComplete
+    }
     quizComplete = qList.every((question) => question.aUser !== -1)
     console.log(`quizComplete: ${quizComplete}`)
     return quizComplete
+}
+
+function submitQuiz() {
+    quizSubmitted = true
+    score = 0
+    qList.forEach((question) => {
+        if (question.aUser === question.aTrue) {
+            score++
+        }
+    })
+    refreshQuestionBlock()
 }
