@@ -23,7 +23,9 @@ loadTrueAnswersHardcoded()
 console.log(qList)
 
 // Uncomment this to fill answers for testing.
-// qList.every((question) => (question.aUser = 2))
+qList.every((question) => (question.aUser = 2))
+
+refreshQuestionBlock()
 
 refreshQuestionBlock()
 
@@ -176,6 +178,8 @@ function submitQuiz() {
     })
 
     colorAnswers()
+
+    separateQuestionsWithLines()
 }
 
 /**
@@ -189,6 +193,19 @@ function colorAnswers() {
         if (question.aTrue !== question.aUser) {
             buttons[question.aTrue].style.backgroundColor = "rgb(175, 225, 175)" // Green
             buttons[question.aUser].style.backgroundColor = "rgb(225, 175, 175)" // Red
+        }
+    })
+}
+
+/**
+ * Adds a horizontal line after each question except the last one.
+ * Used when the quiz end screen is displayed.
+ */
+function separateQuestionsWithLines() {
+    qList.forEach((question, i) => {
+        if (i !== qList.length-1) {
+            let hr = document.createElement("hr")
+            question.self.appendChild(hr)
         }
     })
 }
@@ -250,10 +267,14 @@ function addSubmitButtonListener() {
         submitQuiz()
     })
 }
+
+
+
 // #endregion
 
 //
 //
 // -- TODO --
+// - The logic for coloring buttons needs fixing. 
 // - CSS
 // - Make more sensible questions.
