@@ -16,10 +16,6 @@ footer {
     display: none;
 }
 
-#bSubmit {
-    visibility: hidden;
-}
-
 #qBlock,
 #resultBlock {
     border: 1px solid black;

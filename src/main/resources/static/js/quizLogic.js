@@ -14,7 +14,7 @@ loadTrueAnswersHardcoded()
 console.log(qList)
 
 // Uncomment this to fill answers.
-qList.every((question) => (question.aUser = 2))
+// qList.every((question) => (question.aUser = 2))
 
 refreshQuestionBlock()
 
@@ -90,25 +90,27 @@ function hideQuestions() {
 function displayQuestion(id) {
     qList[id].self.style.display = "block"
     qList[id].self.querySelector(".userAnswer").textContent = `Your Answer: ${qList[id].aUser === -1 ? " " : qList[id].aList[qList[id].aUser]}`
-    if (currentQID === 0) {
-        document.querySelector("#bNext").style.visibility = "visible"
-        document.querySelector("#bPrev").style.visibility = "hidden"
-    } else if (currentQID === qList.length - 1) {
-        document.querySelector("#bNext").style.visibility = "hidden"
-        document.querySelector("#bPrev").style.visibility = "visible"
+
+    if (currentQID === qList.length - 1 || qList[currentQID].aUser === -1) {
+        document.querySelector("#bNext").disabled = true;
     } else {
-        document.querySelector("#bNext").style.visibility = "visible"
-        document.querySelector("#bPrev").style.visibility = "visible"
+        document.querySelector("#bNext").disabled = false;
+    }
+
+    if (currentQID === 0) {
+        document.querySelector("#bPrev").disabled = true;
+    } else {
+        document.querySelector("#bPrev").disabled = false;
     }
 }
 
 function checkIfDisplaySubmit() {
     if (!quizSubmitted && checkCompletion()) {
-        document.querySelector("#bSubmit").style.visibility = "visible"
-        return true
+        document.querySelector("#bSubmit").disabled = false;
+        return true;
     } else {
-        document.querySelector("#bSubmit").style.visibility = "hidden"
-        return false
+        document.querySelector("#bSubmit").disabled = true;
+        return false;
     }
 }
 
