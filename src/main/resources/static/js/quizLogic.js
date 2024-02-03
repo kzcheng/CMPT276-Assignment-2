@@ -2,7 +2,6 @@
 //
 // Variables
 var qList = loadQuestionDataFromHTML()
-// When currentQID = -1, the quiz is over.
 var currentQID = 0
 // Boolean flag to indicate if all questions have been answered.
 var quizComplete = false
@@ -14,13 +13,8 @@ loadTrueAnswersHardcoded()
 
 console.log(qList)
 
-// qList.forEach((question) => {
-//     console.log(question.self)
-// })
-
 // Uncomment this to fill answers.
 qList.every((question) => (question.aUser = 2))
-console.log(`checkCompletion: ${checkCompletion()}`)
 
 refreshQuestionBlock()
 
@@ -135,5 +129,18 @@ function submitQuiz() {
             score++
         }
     })
+    document.querySelector("#resultText").textContent = `You got ${score} out of 5 correct!`
+    document.querySelector("#resultBlock").style.display = "block"
+
+    // Disable all answer buttons
+    document.querySelectorAll(".choices button").forEach((button) => {
+        button.disabled = true
+    })
+
+    // Show all the correct answers
+    document.querySelectorAll(".trueAnswer").forEach((trueAnswer) => {
+        trueAnswer.style.display = "block"
+    })
+
     refreshQuestionBlock()
 }

@@ -11,7 +11,8 @@ footer {
 #q3,
 #q4,
 #q5,
-#resultBlock {
+#resultBlock,
+.trueAnswer {
     display: none;
 }
 
