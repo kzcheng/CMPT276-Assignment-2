@@ -56,10 +56,10 @@ document.querySelector("#bSubmit").addEventListener("click", () => {
 // Functions
 function loadQuestionDataFromHTML() {
     return Array.from({ length: 5 }, (_, i) => {
-        let self = document.querySelector(`#q${i + 1}`)
+        let self = document.querySelector(`#question${i + 1}`)
         return {
             self: self,
-            qText: self.querySelector(".qText").textContent,
+            questionText: self.querySelector(".questionText").textContent,
             aList: Array.from(self.querySelectorAll(".choices button")).map((button) => button.textContent),
             // When the user hasn't answered the question yet, aUser = -1.
             aUser: -1,

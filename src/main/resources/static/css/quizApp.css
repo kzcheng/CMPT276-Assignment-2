@@ -6,17 +6,17 @@ footer {
     margin-top: 50px;
 }
 
-#q1,
-#q2,
-#q3,
-#q4,
-#q5,
+#question1,
+#question2,
+#question3,
+#question4,
+#question5,
 #resultBlock,
 .trueAnswer {
     display: none;
 }
 
-#qBlock,
+#questionBlock,
 #resultBlock {
     border: 1px solid black;
     padding: 20px;
