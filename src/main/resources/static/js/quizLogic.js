@@ -14,7 +14,7 @@ loadTrueAnswersHardcoded()
 console.log(qList)
 
 // Uncomment this to fill answers.
-// qList.every((question) => (question.aUser = 2))
+qList.every((question) => (question.aUser = 2))
 
 refreshQuestionBlock()
 
@@ -91,26 +91,28 @@ function displayQuestion(id) {
     qList[id].self.style.display = "block"
     qList[id].self.querySelector(".userAnswer").textContent = `Your Answer: ${qList[id].aUser === -1 ? " " : qList[id].aList[qList[id].aUser]}`
 
+    if (quizSubmitted) return
+
     if (currentQID === qList.length - 1 || qList[currentQID].aUser === -1) {
-        document.querySelector("#bNext").disabled = true;
+        document.querySelector("#bNext").disabled = true
     } else {
-        document.querySelector("#bNext").disabled = false;
+        document.querySelector("#bNext").disabled = false
     }
 
     if (currentQID === 0) {
-        document.querySelector("#bPrev").disabled = true;
+        document.querySelector("#bPrev").disabled = true
     } else {
-        document.querySelector("#bPrev").disabled = false;
+        document.querySelector("#bPrev").disabled = false
     }
 }
 
 function checkIfDisplaySubmit() {
     if (!quizSubmitted && checkCompletion()) {
-        document.querySelector("#bSubmit").disabled = false;
-        return true;
+        document.querySelector("#bSubmit").disabled = false
+        return true
     } else {
-        document.querySelector("#bSubmit").disabled = true;
-        return false;
+        document.querySelector("#bSubmit").disabled = true
+        return false
     }
 }
 
@@ -136,21 +138,28 @@ function submitQuiz() {
 
     // Disable all answer buttons
     document.querySelectorAll(".choices button").forEach((button) => {
-        button.disabled = true
+        button.style.display = "none"
     })
+
+    // Hide the next, previous, and submit buttons
+    document.querySelector("#bNext").style.display = "none"
+    document.querySelector("#bPrev").style.display = "none"
+    document.querySelector("#bSubmit").style.display = "none"
 
     // Show all the correct answers
     document.querySelectorAll(".trueAnswer").forEach((trueAnswer) => {
         trueAnswer.style.display = "block"
     })
 
-    refreshQuestionBlock()
+    // Also show all the questions
+    qList.forEach((question) => {
+        question.self.style.display = "block"
+    })
+
+    // refreshQuestionBlock()
 }
 
-
-
 // TODO
-// 1. Highlighting the user's answer and the correct answer
-// 2. Upon submitting the quiz, display the user's score and correct answers for each question.
-// 3. CSS
-// 4. Make more sensible questions.
+// - Highlighting the user's answer and the correct answer
+// - CSS
+// - Make more sensible questions.
