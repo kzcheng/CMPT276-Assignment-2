@@ -26,3 +26,20 @@ footer {
 #resultBlock {
     margin-bottom: 30px;
 }
+
+#questionBlock {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+table,
+tr {
+    border: 1px solid black;
+}
