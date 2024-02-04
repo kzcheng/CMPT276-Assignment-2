@@ -65,7 +65,7 @@ function addAnswerButtonListeners() {
     // All the answer buttons for all the questions.
     qList.forEach((question, i) => {
         question.aList.forEach((answer, j) => {
-            let button = question.self.querySelector(`.choices button:nth-child(${j + 1})`)
+            let button = question.self.querySelector(`.choices .answer${j + 1}`)
             button.addEventListener("click", () => {
                 console.log(`Question ${i + 1} button ${j + 1} clicked.`)
                 question.aUser = j
