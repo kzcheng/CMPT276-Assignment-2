@@ -1,5 +1,7 @@
 # CMPT276 Assignment 1
-Assignment 1 of CMPT276 taught by Bobby Chan in 2024.
+Assignment 1 of CMPT276 instructed by Bobby Chan in 2024.
+
+Assignment guidelines can be found at: <https://canvas.sfu.ca/courses/83043/assignments/952046>
 
 ## Interactive Quiz Application
 A small web app deployed on Render.com. HTML, CSS, and JavaScript will be used.
@@ -9,7 +11,11 @@ A small web app deployed on Render.com. HTML, CSS, and JavaScript will be used.
 ![Answer Selected](<documentation/Screenshot 2024-02-03 180610.png>)
 ![Results Screen](<documentation/Screenshot 2024-02-03 180722.png>)
 
-## Deploying Locally
+## Deployment
+### Render.com
+Currently, this project is being hosted on: <https://cmpt276-assignment-1-nqf7.onrender.com>
+
+### Deploying Locally
 1. Clone the repo.
 2. Run the Java file in `src\main\java\cmpt276\kzcheng\asn1\Asn1Application.java`.
 3. Install any dependencies needed if any are missing and try again.
