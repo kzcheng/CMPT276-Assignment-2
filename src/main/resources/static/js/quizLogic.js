@@ -70,13 +70,17 @@ function loadTrueAnswersHardcoded() {
 }
 
 /**
- * Refreshes the question block by hiding all questions, displaying the current question, and checking if the submit button should be displayed.
+ * Refreshes the question block by performing the following actions:
+ * - Hides the questions
+ * - Checks if the submit button should be displayed
+ * - Colors the answer buttons
+ * - Displays the current question
  */
 function refreshQuestionBlock() {
     hideQuestions()
-    displayQuestion(currentQID)
     checkIfDisplaySubmit()
     colorAnswers()
+    displayQuestion(currentQID)
 }
 
 /**
@@ -152,6 +156,11 @@ function submitQuiz() {
             score++
         }
     })
+    displayEndOfQuizScreen()
+}
+
+function displayEndOfQuizScreen() {
+    // Display the score.
     document.querySelector("#resultText").textContent = `You got ${score} out of 5 correct!`
     document.querySelector("#resultBlock").style.display = "block"
 
@@ -170,19 +179,19 @@ function submitQuiz() {
         trueAnswer.style.display = "block"
     })
 
-    // Also show all the questions.
+    // Also just show all the questions.
     qList.forEach((question) => {
         question.self.style.display = "block"
     })
 
-    colorAnswers()
-
     separateQuestionsWithLines()
+    colorAnswers()
+    displayQuestion(currentQID)
 }
 
 /**
  * Colors the answer buttons based on whether the user's answer is correct or not.
- * If the user's answer is correct, the button stays blue.
+ * If the user's answer is correct, the button is colored blue.
  * If the user's answer is incorrect, the button turns red and the correct answer button turns green.
  */
 function colorAnswers() {
@@ -247,9 +256,6 @@ function addAnswerButtonListeners() {
                 question.self.querySelectorAll(".choices button").forEach((btn) => {
                     btn.style.backgroundColor = ""
                 })
-
-                // Change the selected button color
-                button.style.backgroundColor = "rgb(175, 225, 225)" // Blue
 
                 refreshQuestionBlock()
             })
