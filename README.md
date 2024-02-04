@@ -13,7 +13,7 @@ A small web app deployed on Render.com. HTML, CSS, and JavaScript will be used.
 
 ## Deployment
 ### Render.com
-Currently, this project is being hosted on: <https://cmpt276-assignment-1-nqf7.onrender.com>
+Currently, this project is being hosted on: <https://cmpt276-assignment-1-nqf7.onrender.com/quizApp.html>
 
 ### Deploying Locally
 1. Clone the repo.
