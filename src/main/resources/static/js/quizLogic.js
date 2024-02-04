@@ -284,9 +284,3 @@ function showLinesBetweenQuestions() {
 }
 
 // #endregion
-
-//
-//
-// -- TODO --
-// - CSS.
-// - Make more sensible questions.
