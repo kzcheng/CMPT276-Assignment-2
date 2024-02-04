@@ -1,3 +1,10 @@
+/**
+ * This CSS file contains styles for a quiz application.
+ * It sets the font family, max width, and margin for the body element.
+ * It also defines styles for the footer, question blocks, result block, and navigation buttons.
+ * Additionally, it sets the background color for the body element.
+ */
+ 
 body {
     font-family: Arial, Helvetica, sans-serif;
     max-width: 800px; /* Adjust this value to your preference */
