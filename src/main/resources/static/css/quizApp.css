@@ -5,7 +5,7 @@ body {
 }
 
 footer {
-    margin-top: 50px;
+    margin: 10px 0;
 }
 
 #question1,
@@ -22,9 +22,42 @@ footer {
 #resultBlock {
     border: 1px solid black;
     padding: 20px;
-    padding-top: 0px;
+    background-color: rgb(240, 240, 240);
 }
 
 #resultBlock {
     margin-bottom: 30px;
+}
+
+#questionBlock button {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    font-size: 16px;
+    margin: 2px 0;
+}
+
+#navButtons {
+    display: flex;
+    justify-content: center;
+}
+
+#navButtons button {
+    width: 100px;
+    height: 50px;
+    padding: 15px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+button {
+    background-color: white;
+}
+
+.questionText {
+    height: 40px;
+}
+
+body {
+    background-color: wheat;
 }

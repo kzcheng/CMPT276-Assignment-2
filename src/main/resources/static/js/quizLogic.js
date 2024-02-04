@@ -218,7 +218,7 @@ function checkAndDisplaySubmit() {
  */
 function displayEndOfQuizScreen() {
     // Display the score.
-    document.querySelector("#resultText").textContent = `You got ${score} out of 5 correct!`
+    document.querySelector("#resultText").textContent = `You got ${score} out of 5 questions correct!`
     document.querySelector("#resultBlock").style.display = "block"
 
     // Disable all answer buttons.
