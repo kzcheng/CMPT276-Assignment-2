@@ -4,7 +4,7 @@
  * It also defines styles for the footer, question blocks, result block, and navigation buttons.
  * Additionally, it sets the background color for the body element.
  */
- 
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     max-width: 800px; /* Adjust this value to your preference */

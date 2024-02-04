@@ -20,14 +20,8 @@ var currentQID = 0
 // The user's score.
 var score = 0
 
-// I really wish I didn't choose to store all the data in the HTML file.
 loadTrueAnswersHardcoded()
-
-// Uncomment this to fill answers for testing.
-// qList.every((question) => (question.aUser = 2))
-
 refreshQuestionBlock()
-
 // #endregion
 
 //
