@@ -23,8 +23,6 @@ var score = 0
 // I really wish I didn't choose to store all the data in the HTML file.
 loadTrueAnswersHardcoded()
 
-console.log(qList)
-
 // Uncomment this to fill answers for testing.
 // qList.every((question) => (question.aUser = 2))
 
@@ -50,15 +48,11 @@ addSubmitButtonListener()
  */
 function addNavigationListeners() {
     document.querySelector("#bNext").addEventListener("click", () => {
-        console.log("Next button clicked.")
         currentQID++
-        console.log(`Moving to question ${currentQID + 1}.`)
         refreshQuestionBlock()
     })
     document.querySelector("#bPrev").addEventListener("click", () => {
-        console.log("Previous button clicked.")
         currentQID--
-        console.log(`Moving to question ${currentQID + 1}.`)
         refreshQuestionBlock()
     })
 }
@@ -255,7 +249,6 @@ function checkCompletion() {
         return quizComplete
     }
     quizComplete = qList.every((question) => question.aUser !== -1)
-    console.log(`quizComplete: ${quizComplete}`)
     return quizComplete
 }
 
