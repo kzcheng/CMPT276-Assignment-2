@@ -1,6 +1,8 @@
 package cmpt276.kzcheng.asn1.models;
 
 public class Users {
+    // This is a user object.
+
     private String name;
     private String password;
     private int size;
