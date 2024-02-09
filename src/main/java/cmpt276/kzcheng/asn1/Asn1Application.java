@@ -13,7 +13,7 @@ public class Asn1Application {
 }
 
 // Spring is running the server on localhost.
-// As indicated by the console output: `2024-01-28T09:41:15.584-08:00  INFO 29396 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)`
+// As indicated by the console output: `2024-01-28T09:41:15.584-08:00    INFO 29396 --- [ restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat initialized with port 9090 (http)`
 // To access the server, go to http://localhost:9090/
 
 // To access the Actuator, go to http://localhost:9090/actuator
