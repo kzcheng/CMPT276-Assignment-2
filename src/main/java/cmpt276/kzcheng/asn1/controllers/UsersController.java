@@ -15,10 +15,10 @@ public class UsersController {
         System.out.println("Get all users");
         // TODO: Get all users from the database
         List<Users> users = new ArrayList<>();
-        users.add(new Users("Bobby", "1234", 10));
-        users.add(new Users("Steve", "4321", 20));
-        users.add(new Users("Jack", "4322", 30));
-        users.add(new Users("Bob", "1231", 40));
+        users.add(new Users("Bobby", "1234", 40));
+        users.add(new Users("Steve", "4321", 30));
+        users.add(new Users("Jack", "4322", 40));
+        users.add(new Users("Bob", "1231", 50));
         // End of database call.
         model.addAttribute("us", users);
         return "users/showAll";
