@@ -1,4 +1,4 @@
-package cmpt276.kzcheng.asn1.models;
+package cmpt276.kzcheng.asn2.models;
 
 import jakarta.persistence.*;
 

@@ -17,7 +17,7 @@ Currently, this project is being hosted on: <https://cmpt276-assignment-1-nqf7.o
 
 ### Deploying Locally
 1. Clone the repo.
-2. Run the Java file in `src\main\java\cmpt276\kzcheng\asn1\Asn1Application.java`.
+2. Run the Java file in `src\main\java\cmpt276\kzcheng\asn2\asn2Application.java`.
 3. Install any dependencies needed if any are missing and try again.
 4. Visit `http://localhost:9090/quizApp.html` to see the web app.
 

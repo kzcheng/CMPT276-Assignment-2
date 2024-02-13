@@ -1,10 +1,10 @@
-package cmpt276.kzcheng.asn1;
+package cmpt276.kzcheng.asn2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Asn1ApplicationTests {
+class asn2ApplicationTests {
 
 	@Test
 	void contextLoads() {

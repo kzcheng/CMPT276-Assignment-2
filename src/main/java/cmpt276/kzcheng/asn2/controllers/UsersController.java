@@ -1,4 +1,4 @@
-package cmpt276.kzcheng.asn1.controllers;
+package cmpt276.kzcheng.asn2.controllers;
 
 import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
@@ -11,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
-import cmpt276.kzcheng.asn1.models.User;
-import cmpt276.kzcheng.asn1.models.UserRepository;
+import cmpt276.kzcheng.asn2.models.User;
+import cmpt276.kzcheng.asn2.models.UserRepository;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
