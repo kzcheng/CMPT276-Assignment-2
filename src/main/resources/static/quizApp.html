@@ -1,0 +1,110 @@
+<!-- 
+    This HTML file represents an interactive quiz application.
+    It contains a series of multiple-choice questions with corresponding answer choices.
+    The user can select an answer for each question and view the result at the end.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Interactive Quiz</title>
+        <link rel="stylesheet" href="/css/quizApp.css" />
+        <script src="/js/quizLogic.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Interactive Quiz</h1>
+        </header>
+        <main>
+            <div id="resultBlock">
+                <h2>Result</h2>
+                <h3 id="resultText">You got 0 out of 5 questions correct!</h3>
+            </div>
+            <div id="questionBlock">
+                <div id="question1">
+                    <h2>Question 1</h2>
+                    <h3 class="questionText">Which language uses the three writing systems called Hiragana, Katakana, and Kanji?</h3>
+                    <div class="choices">
+                        <button class="answer1">Japanese</button>
+                        <button class="answer2">Chinese</button>
+                        <button class="answer3">Korean</button>
+                        <button class="answer4">Thai</button>
+                        <button class="answer5">Vietnamese</button>
+                    </div>
+                    <h3 class="userAnswer">Your Answer:</h3>
+                    <div class="trueAnswer">
+                        <h3>Correct Answer: Japanese</h3>
+                    </div>
+                </div>
+                <div id="question2">
+                    <h2>Question 2</h2>
+                    <h3 class="questionText">Who created Minecraft?</h3>
+                    <div class="choices">
+                        <button class="answer1">Ubisoft</button>
+                        <button class="answer2">Mojang</button>
+                        <button class="answer3">Sony</button>
+                        <button class="answer4">Remedy</button>
+                        <button class="answer5">Valve</button>
+                    </div>
+                    <h3 class="userAnswer">Your Answer:</h3>
+                    <div class="trueAnswer">
+                        <h3>Correct Answer: Mojang</h3>
+                    </div>
+                </div>
+                <div id="question3">
+                    <h2>Question 3</h2>
+                    <h3 class="questionText">Which video game franchise features a plumber who often sets out to rescue Princess Peach?</h3>
+                    <div class="choices">
+                        <button class="answer1">Sonic the Hedgehog</button>
+                        <button class="answer2">Final Fantasy</button>
+                        <button class="answer3">Super Mario</button>
+                        <button class="answer4">Halo</button>
+                        <button class="answer5">The Legend of Zelda</button>
+                    </div>
+                    <h3 class="userAnswer">Your Answer:</h3>
+                    <div class="trueAnswer">
+                        <h3>Correct Answer: Super Mario</h3>
+                    </div>
+                </div>
+                <div id="question4">
+                    <h2>Question 4</h2>
+                    <h3 class="questionText">What is the capital city of Canada?</h3>
+                    <div class="choices">
+                        <button class="answer1">Calgary</button>
+                        <button class="answer2">Toronto</button>
+                        <button class="answer3">Montreal</button>
+                        <button class="answer4">Ottawa</button>
+                        <button class="answer5">Vancouver</button>
+                    </div>
+                    <h3 class="userAnswer">Your Answer:</h3>
+                    <div class="trueAnswer">
+                        <h3>Correct Answer: Ottawa</h3>
+                    </div>
+                </div>
+                <div id="question5">
+                    <h2>Question 5</h2>
+                    <h3 class="questionText">Which element has the chemical symbol Au?</h3>
+                    <div class="choices">
+                        <button class="answer1">Aluminum</button>
+                        <button class="answer2">Argon</button>
+                        <button class="answer3">Copper</button>
+                        <button class="answer4">Silver</button>
+                        <button class="answer5">Gold</button>
+                    </div>
+                    <h3 class="userAnswer">Your Answer:</h3>
+                    <div class="trueAnswer">
+                        <h3>Correct Answer: Gold</h3>
+                    </div>
+                </div>
+                <div id="navButtons">
+                    <button id="bPrev">Previous</button>
+                    <button id="bNext">Next</button>
+                    <button id="bSubmit">Submit</button>
+                </div>
+            </div>
+        </main>
+        <footer>Made by Kevin Cheng for CMPT276 @2024</footer>
+    </body>
+</html>
