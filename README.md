@@ -1,17 +1,12 @@
-# CMPT276 Assignment 1
-Assignment 1 of CMPT276 instructed by Bobby Chan in 2024.
+# CMPT276 Assignment 2
+Assignment 2 of CMPT276 instructed by Bobby Chan in 2024.
 
-Assignment guidelines can be found at: <https://canvas.sfu.ca/courses/83043/assignments/952046>
+Assignment guidelines can be found at: <https://canvas.sfu.ca/courses/83043/assignments/952047>
 
-## Interactive Quiz Application
-A small web app deployed on Render.com. HTML, CSS, and JavaScript will be used.
+## Student Tracker
+A small web app designed to track a group of students. Deployed on Render.com.
 
-### Screenshots
-![Default](<documentation/Screenshot 2024-02-03 180341.png>)
-![Answer Selected](<documentation/Screenshot 2024-02-03 180610.png>)
-![Results Screen](<documentation/Screenshot 2024-02-03 180722.png>)
-
-## Deployment
+## Deployment (TODO Needs update)
 ### Render.com
 Currently, this project is being hosted on: <https://cmpt276-assignment-1-nqf7.onrender.com/quizApp.html>
 
