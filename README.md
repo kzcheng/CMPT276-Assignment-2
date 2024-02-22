@@ -7,7 +7,10 @@ Assignment guidelines can be found at: <https://canvas.sfu.ca/courses/83043/assi
 A small web app designed to track a group of students. Deployed on Render.com.
 
 ### UI Mockup
+![UI Mockup](<documentation/Screenshot 2024-02-12 185134.png>)
 
+### Database Mockup
+![Database Mockup](<documentation/Screenshot 2024-02-12 185121.png>)
 
 ## Notes for Marking This
 ### Port ID
