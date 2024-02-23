@@ -1,0 +1,29 @@
+/**
+ * This should be the default CSS file that every page should use.
+ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: wheat;
+}
+
+footer {
+    margin: 10px 0;
+}
+
+.block {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px 0px;
+    background-color: rgb(240, 240, 240);
+}
+
+button {
+    background-color: white;
+    width: 100px;
+    height: Auto;
+    padding: 15px;
+    margin: 5px 0px;
+}
