@@ -16,7 +16,12 @@ public class HomeController {
     }
 
     @GetMapping("/main")
-    public String getLogin(Model model, HttpServletRequest request, HttpSession session) {
+    public String getMainPage(Model model, HttpServletRequest request, HttpSession session) {
         return "main";
+    }
+
+    @GetMapping("/admin")
+    public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
+        return "admin";
     }
 }

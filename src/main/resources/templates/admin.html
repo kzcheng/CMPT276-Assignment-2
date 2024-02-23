@@ -1,0 +1,32 @@
+<!-- 
+    This is an admin page with a few testing features. It's a simple HTML file with a heading and a few buttons. The buttons are used to test the functionality of the application. 
+    The admin page is a work in progress and will be updated as the application evolves.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Page</title>
+    </head>
+    <body>
+        <header>
+            <h1>Admin Page</h1>
+            <div>
+                This is an admin page used for testing. There should be a few buttons and forms that can be used to quickly read and write data into the database.<br />
+                In theory this page shouldn't be accessible for the user. But for the purposes of making it easier to mark this, this page will be left as it is.<br />
+                Feel free to play around with stuff here.
+            </div>
+        </header>
+        <main>
+            <form action="/student/add" method="post">
+                <input type="text" name="name" placeholder="Name" />
+                <input type="text" name="weight" placeholder="Weight" />
+                <input type="text" name="height" placeholder="Height" />
+                <input type="text" name="hairColor" placeholder="Hair Color" />
+                <input type="text" name="gpa" placeholder="GPA" />
+                <button type="submit">Add User</button>
+            </form>
+        </main>
+    </body>
+</html>
