@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import cmpt276.kzcheng.asn2.models.Student;
 import cmpt276.kzcheng.asn2.models.StudentRepository;
 
@@ -14,6 +17,22 @@ import cmpt276.kzcheng.asn2.models.StudentRepository;
 public class StudentController {
     @Autowired
     private StudentRepository studentRepo;
+
+
+    @GetMapping("/")
+    public RedirectView process() {
+        return new RedirectView("main");
+    }
+
+    @GetMapping("/main")
+    public String getMainPage(Model model, HttpServletRequest request, HttpSession session) {
+        return "main";
+    }
+
+    @GetMapping("/admin")
+    public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
+        return "admin";
+    }
 
     /**
      * Retrieves all students from the database and displays them in the view. We can trigger this by visiting the URL /students/view. This will get all students from the database and display them using the view template found in /students/showAll.html.
