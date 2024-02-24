@@ -31,6 +31,14 @@
             <div th:insert="~{students/fragments/addStudentForm :: addStudentForm}"></div>
         </main>
 
+        <main class="container my-5">
+            <h2>Funny Buttons</h2>
+            <form th:action="@{/students/delete/all}" method="post">
+                <input type="hidden" name="redirectUrl" th:value="${currentUrl}"/>
+                <button type="submit" class="btn btn-danger">Delete All Students</button>
+            </form>
+        </main>
+
         <footer class="container my-5 fixed-bottom">Made by Kevin Cheng for CMPT276 @2024</footer>
     </body>
 </html>
