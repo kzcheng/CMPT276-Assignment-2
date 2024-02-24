@@ -18,7 +18,7 @@
                 <td th:text="${student.hairColor}"></td>
                 <td th:text="${student.gpa}"></td>
                 <td>
-                    <button type="button" class="btn btn-primary" onclick="randomShitGotClicked()">Random Shit</button>
+                    <button type="button" class="btn btn-primary" th:onclick="'randomShitGotClicked(\'' + ${student.sid} + '\')'">Random Shit</button>
                     <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
                         <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
                         <button type="submit" class="btn btn-danger">Delete</button>

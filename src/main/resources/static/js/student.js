@@ -1,5 +1,5 @@
 console.log("student.js loaded.")
 
-function randomShitGotClicked() {
-    console.log("Shit")
+function randomShitGotClicked(sid) {
+    console.log("SID = ", sid)
 }
