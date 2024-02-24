@@ -16,6 +16,14 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepo;
 
+    /**
+     * This method is called before any other method in this class. It is used to populate the model with a list of all students in the database. This list can then be accessed in the view template using the name "st". ...anyway, that's what Copilot said. I'm still not sure if this is a good idea but I want to try and see if it works. Edit: Ok, so it works. As Copilot said, this thing is called every time a method in this class is called. Which means, there are some security and performance concerns. But I guess it's fine for this project.
+     */
+    @ModelAttribute("st")
+    public List<Student> populateStudents() {
+        return studentRepo.findAll();
+    }
+
     @GetMapping("/")
     public RedirectView process() {
         return new RedirectView("students/main");
@@ -39,11 +47,12 @@ public class StudentController {
      */
     @GetMapping("/students/view")
     public String getAllStudents(Model model) {
-        System.out.println("Get all users");
-        // Get all students from the database
-        List<Student> students = studentRepo.findAll();
-        // End of database call.
-        model.addAttribute("st", students);
+        // This part is being made irrelevant by the populateStudents method.
+        // System.out.println("Get all users");
+        // // Get all students from the database
+        // List<Student> students = studentRepo.findAll();
+        // // End of database call.
+        // model.addAttribute("st", students);
         return "students/showAll";
     }
 
@@ -67,8 +76,6 @@ public class StudentController {
         // TODO this redirect should probably be something different in the final version.
         return "students/addedStudent";
     }
-
-
 
     /**
      * Deletes a student from the system. In theory, the correct way to do this is to use a DELETE request. However, HTML forms only support GET and POST requests, and a DELETE request will need to be sent using JavaScript. Therefore, for simplicity, we use a POST request here.
