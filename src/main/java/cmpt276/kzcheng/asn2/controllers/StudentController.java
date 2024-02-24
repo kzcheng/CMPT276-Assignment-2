@@ -35,7 +35,7 @@ public class StudentController {
     /**
      * Main page, might be the only page required for this project.
      */
-    @GetMapping("/students/main")
+    @GetMapping("/students")
     public String getMainPage(Model model, HttpServletRequest request, HttpSession session) {
         return "students/main";
     }
@@ -113,22 +113,27 @@ public class StudentController {
     // -- Redirects for QoL --
     @GetMapping("/")
     public RedirectView redirectNull() {
-        return new RedirectView("students/main");
+        return new RedirectView("/students");
     }
 
     @GetMapping("/main")
     public RedirectView redirectMain() {
-        return new RedirectView("students/main");
+        return new RedirectView("/students");
     }
 
-    @GetMapping("/students")
+    @GetMapping("/students/")
     public RedirectView redirectStudents() {
-        return new RedirectView("students/main");
+        return new RedirectView("/students");
+    }
+
+    @GetMapping("/students/main")
+    public RedirectView redirectStudentsMain() {
+        return new RedirectView("/students");
     }
 
     @GetMapping("/admin")
     public RedirectView redirectAdmin() {
-        return new RedirectView("students/admin");
+        return new RedirectView("/students/admin");
     }
 
 
