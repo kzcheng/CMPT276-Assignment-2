@@ -24,11 +24,6 @@ public class StudentController {
         return studentRepo.findAll();
     }
 
-    @GetMapping("/")
-    public RedirectView process() {
-        return new RedirectView("students/main");
-    }
-
     @GetMapping("/students/main")
     public String getMainPage(Model model, HttpServletRequest request, HttpSession session) {
         return "students/main";
@@ -95,4 +90,27 @@ public class StudentController {
     //     studentRepo.deleteById(sid);
     //     return "students/deletedStudent";
     // }
+
+
+
+    // -- Redirects for QoL --
+    @GetMapping("/")
+    public RedirectView redirectNull() {
+        return new RedirectView("students/main");
+    }
+
+    @GetMapping("/main")
+    public RedirectView redirectMain() {
+        return new RedirectView("students/main");
+    }
+
+    @GetMapping("/students")
+    public RedirectView redirectStudents() {
+        return new RedirectView("students/main");
+    }
+
+    @GetMapping("/admin")
+    public RedirectView redirectAdmin() {
+        return new RedirectView("students/admin");
+    }
 }
