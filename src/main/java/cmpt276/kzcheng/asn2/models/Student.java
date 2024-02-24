@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 /**
  * Represents a student with various attributes such as name, weight, height, hair color, and GPA.
  */
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
