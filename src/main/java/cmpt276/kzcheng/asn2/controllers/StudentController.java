@@ -58,7 +58,7 @@ public class StudentController {
      * Adds a new student to the system.
      */
     @PostMapping("/students/add")
-    public String addStudent(@RequestParam Map<String, String> newStudent, HttpServletResponse response) {
+    public String addStudent(@RequestParam Map<String, String> newStudent, @RequestParam String redirectUrl, HttpServletResponse response) {
         System.out.println("ADD student");
         String name = newStudent.get("name");
         int weight = Integer.parseInt(newStudent.get("weight"));
@@ -67,17 +67,16 @@ public class StudentController {
         float gpa = Float.parseFloat(newStudent.get("gpa"));
         studentRepo.save(new Student(name, weight, height, hairColor, gpa));
         response.setStatus(HttpServletResponse.SC_CREATED);
-        // TODO this redirect should probably be something different in the final version.
-        return "students/addedStudent";
+        return "redirect:" + redirectUrl;
     }
 
     /**
      * Deletes a student from the system. In theory, the correct way to do this is to use a DELETE request. However, HTML forms only support GET and POST requests, and a DELETE request will need to be sent using JavaScript. Therefore, for simplicity, we use a POST request here.
      */
     @PostMapping("/students/delete/{sid}")
-    public String deleteStudent(@PathVariable int sid) {
+    public String deleteStudent(@PathVariable int sid, @RequestParam String redirectUrl) {
         studentRepo.deleteById(sid);
-        return "redirect:/students/view";
+        return "redirect:" + redirectUrl;
     }
 
     /**

@@ -22,6 +22,7 @@
                     <!-- This is what Copilot told me to do, and for some reason it works. So... good enough? -->
                     <!-- Edit: ok after looking at what Copilot says, I think it's because the previous <a> button is only doing a GET request instead of POST. And I need a form to do a POST. -->
                     <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
+                        <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
