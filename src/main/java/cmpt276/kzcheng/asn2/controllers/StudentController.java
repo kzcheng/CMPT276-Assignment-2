@@ -40,13 +40,13 @@ public class StudentController {
         return "students/main";
     }
 
-    /**
-     * Admin page, useful for testing.
-     */
-    @GetMapping("/students/admin")
-    public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
-        return "students/admin";
-    }
+    // /**
+    //  * Admin page, useful for testing.
+    //  */
+    // @GetMapping("/students/admin")
+    // public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
+    //     return "students/admin";
+    // }
 
     /**
      * Adds a new student to the system.
@@ -131,10 +131,10 @@ public class StudentController {
         return new RedirectView("/students");
     }
 
-    @GetMapping("/admin")
-    public RedirectView redirectAdmin() {
-        return new RedirectView("/students/admin");
-    }
+    // @GetMapping("/admin")
+    // public RedirectView redirectAdmin() {
+    //     return new RedirectView("/students/admin");
+    // }
 
 
 

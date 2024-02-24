@@ -8,8 +8,3 @@ function selectedStudent(button) {
     currentSelectedStudentID = button.getAttribute("sid")
     console.log("Current Selected Student ID: ", currentSelectedStudentID)
 }
-
-function randomShitGotClicked(button) {
-    var sid = button.getAttribute("sid")
-    console.log("Shit", sid)
-}
