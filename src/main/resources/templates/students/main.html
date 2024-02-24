@@ -28,6 +28,11 @@
         </main>
 
         <main class="container my-5">
+            <h2>Edit the Currently Selected Student</h2>
+            <div th:insert="~{students/fragments/editStudentForm :: editStudentForm}"></div>
+        </main>
+
+        <main class="container my-5">
             <h2>Add a Student</h2>
             <div th:insert="~{students/fragments/addStudentForm :: addStudentForm}"></div>
         </main>

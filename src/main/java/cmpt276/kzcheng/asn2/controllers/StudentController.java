@@ -93,6 +93,21 @@ public class StudentController {
         return "redirect:" + redirectUrl;
     }
 
+    /**
+     * Edits a student in the system. 
+     */
+    @PostMapping("/students/edit/{sid}")
+    public String editStudent(@PathVariable int sid, @RequestParam Map<String, String> newStudent, @RequestParam String redirectUrl) {
+        Student student = studentRepo.findById(sid).get();
+        student.setName(newStudent.get("name"));
+        student.setWeight(Integer.parseInt(newStudent.get("weight")));
+        student.setHeight(Integer.parseInt(newStudent.get("height")));
+        student.setHairColor(newStudent.get("hairColor"));
+        student.setGpa(Float.parseFloat(newStudent.get("gpa")));
+        studentRepo.save(student);
+        return "redirect:" + redirectUrl;
+    }
+
 
 
     // -- Redirects for QoL --
