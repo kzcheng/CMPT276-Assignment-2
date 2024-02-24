@@ -1,0 +1,10 @@
+<div th:fragment="addStudentForm">
+    <form action="/students/add" method="post">
+        <input type="text" class="form-control" name="name" placeholder="Name" /><br />
+        <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
+        <input type="text" class="form-control" name="height" placeholder="Height" /><br />
+        <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
+        <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
+        <button type="submit" class="btn btn-primary">Add User</button>
+    </form>
+</div>

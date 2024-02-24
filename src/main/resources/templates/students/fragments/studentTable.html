@@ -1,34 +1,31 @@
 <div th:fragment="studentTable">
-    <div class="row justify-content-center">
-        <h1>Students</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Weight</th>
-                    <th scope="col">Height</th>
-                    <th scope="col">Hair Color</th>
-                    <th scope="col">GPA</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="student:${st}">
-                    <td th:text="${student.name}"></td>
-                    <td th:text="${student.weight}"></td>
-                    <td th:text="${student.height}"></td>
-                    <td th:text="${student.hairColor}"></td>
-                    <td th:text="${student.gpa}"></td>
-                    <td>
-                        <!-- Ok, for some reason this thing needs to be a form instead of just a button. -->
-                        <!-- This is what Copilot told me to do, and for some reason it works. So... good enough? -->
-                        <!-- Edit: ok after looking at what Copilot says, I think it's because the previous <a> button is only doing a GET request instead of POST. And I need a form to do a POST. -->
-                        <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Height</th>
+                <th scope="col">Hair Color</th>
+                <th scope="col">GPA</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student:${st}">
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.weight}"></td>
+                <td th:text="${student.height}"></td>
+                <td th:text="${student.hairColor}"></td>
+                <td th:text="${student.gpa}"></td>
+                <td>
+                    <!-- Ok, for some reason this thing needs to be a form instead of just a button. -->
+                    <!-- This is what Copilot told me to do, and for some reason it works. So... good enough? -->
+                    <!-- Edit: ok after looking at what Copilot says, I think it's because the previous <a> button is only doing a GET request instead of POST. And I need a form to do a POST. -->
+                    <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
