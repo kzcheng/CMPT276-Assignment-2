@@ -38,11 +38,17 @@ public class StudentController {
         return request.getRequestURI();
     }
 
+    /**
+     * Main page, might be the only page required for this project.
+     */
     @GetMapping("/students/main")
     public String getMainPage(Model model, HttpServletRequest request, HttpSession session) {
         return "students/main";
     }
 
+    /**
+     * Admin page, useful for testing.
+     */
     @GetMapping("/students/admin")
     public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
         return "students/admin";
@@ -74,14 +80,23 @@ public class StudentController {
         return "redirect:/students/view";
     }
 
-
-
     /**
      * Deletes all students from the database. This is a dangerous operation and should not be used in a production environment. But this is just an assignment so it's gonna be helpful for the marker to test the application.
      */
     @PostMapping("/students/delete/all")
     public String deleteAllStudents(@RequestParam String redirectUrl) {
         studentRepo.deleteAll();
+        return "redirect:" + redirectUrl;
+    }
+
+    /**
+     * Fills the student database with testing data. Note that this won't clear the database. It will just add more students to it. And it won't check for duplicates either. So, if you run this method multiple times, you will get multiple copies of the same students in the database.
+     */
+    @PostMapping("/students/fill")
+    public String fillTestingData(@RequestParam String redirectUrl) {
+        studentRepo.save(new Student("Ruby", 100, 220, "Red", 4.8f));
+        studentRepo.save(new Student("Emerald", 80, 170, "Green", 3.5f));
+        studentRepo.save(new Student("Sapphire", 60, 190, "Blue", 3.9f));
         return "redirect:" + redirectUrl;
     }
 
@@ -107,6 +122,8 @@ public class StudentController {
     public RedirectView redirectAdmin() {
         return new RedirectView("students/admin");
     }
+
+
 
     // -- Commented Out Obsolete Code --
 

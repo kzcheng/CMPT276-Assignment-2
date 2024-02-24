@@ -33,8 +33,12 @@
 
         <main class="container my-5">
             <h2>Funny Buttons</h2>
+            <form th:action="@{/students/fill}" method="post">
+                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                <button type="submit" class="btn btn-primary">Add Testing Data</button>
+            </form>
             <form th:action="@{/students/delete/all}" method="post">
-                <input type="hidden" name="redirectUrl" th:value="${currentUrl}"/>
+                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
                 <button type="submit" class="btn btn-danger">Delete All Students</button>
             </form>
         </main>
