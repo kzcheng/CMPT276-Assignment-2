@@ -2,14 +2,12 @@ package cmpt276.kzcheng.asn2.controllers;
 
 import java.util.List;
 import java.util.Map;
+import jakarta.servlet.http.*;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import cmpt276.kzcheng.asn2.models.Student;
 import cmpt276.kzcheng.asn2.models.StudentRepository;
 
@@ -18,20 +16,19 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepo;
 
-
     @GetMapping("/")
     public RedirectView process() {
-        return new RedirectView("main");
+        return new RedirectView("students/main");
     }
 
-    @GetMapping("/main")
+    @GetMapping("/students/main")
     public String getMainPage(Model model, HttpServletRequest request, HttpSession session) {
-        return "main";
+        return "students/main";
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/students/admin")
     public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
-        return "admin";
+        return "students/admin";
     }
 
     /**
