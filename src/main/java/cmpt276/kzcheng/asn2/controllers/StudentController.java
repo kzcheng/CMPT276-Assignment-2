@@ -31,9 +31,7 @@ public class StudentController {
     }
 
     /**
-     * Ok, this is so stupid but it actually works. 
-     * So, I'm using this to refresh the webpage after doing something.
-     * Which means I need to find a way to redirect to the current page the user is on.
+     * Ok, this is so stupid but it actually works. So, I'm using this to refresh the webpage after doing something. Which means I need to find a way to redirect to the current page the user is on.
      */
     @ModelAttribute("currentUrl")
     public String getCurrentUrl(HttpServletRequest request) {
@@ -48,20 +46,6 @@ public class StudentController {
     @GetMapping("/students/admin")
     public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
         return "students/admin";
-    }
-
-    /**
-     * Retrieves all students from the database and displays them in the view. We can trigger this by visiting the URL /students/view. This will get all students from the database and display them using the view template found in /students/showAll.html.
-     */
-    @GetMapping("/students/view")
-    public String getAllStudents(Model model) {
-        // This part is being made irrelevant by the populateStudents method.
-        // System.out.println("Get all users");
-        // // Get all students from the database
-        // List<Student> students = studentRepo.findAll();
-        // // End of database call.
-        // model.addAttribute("st", students);
-        return "students/showAll";
     }
 
     /**
@@ -90,12 +74,7 @@ public class StudentController {
         return "redirect:/students/view";
     }
 
-    // The deleteStudent that actually uses a DELETE request.
-    // @DeleteMapping("/students/delete/{sid}")
-    // public String deleteStudent(@PathVariable int sid) {
-    //     studentRepo.deleteById(sid);
-    //     return "students/deletedStudent";
-    // }
+
 
     /**
      * Deletes all students from the database. This is a dangerous operation and should not be used in a production environment. But this is just an assignment so it's gonna be helpful for the marker to test the application.
@@ -128,4 +107,27 @@ public class StudentController {
     public RedirectView redirectAdmin() {
         return new RedirectView("students/admin");
     }
+
+    // -- Commented Out Obsolete Code --
+
+    // The deleteStudent that actually uses a DELETE request.
+    // @DeleteMapping("/students/delete/{sid}")
+    // public String deleteStudent(@PathVariable int sid) {
+    //     studentRepo.deleteById(sid);
+    //     return "students/deletedStudent";
+    // }
+
+    // /**
+    //  * Retrieves all students from the database and displays them in the view. We can trigger this by visiting the URL /students/view. This will get all students from the database and display them using the view template found in /students/showAll.html.
+    //  */
+    // @GetMapping("/students/view")
+    // public String getAllStudents(Model model) {
+    //     // This part is being made irrelevant by the populateStudents method.
+    //     // System.out.println("Get all users");
+    //     // // Get all students from the database
+    //     // List<Student> students = studentRepo.findAll();
+    //     // // End of database call.
+    //     // model.addAttribute("st", students);
+    //     return "students/showAll";
+    // }
 }
