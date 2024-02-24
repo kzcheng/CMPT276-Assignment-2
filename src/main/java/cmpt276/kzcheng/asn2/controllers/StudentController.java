@@ -16,11 +16,11 @@ public class StudentController {
     private StudentRepository studentRepo;
 
     /**
-        * Retrieves all students from the database and displays them in the view.
-         * 
-        * @param model
-        * @return the name of the view template to render, can be found in the file /students/showAll.html
-        */
+     * Retrieves all students from the database and displays them in the view. We can trigger this by visiting the URL /students/view. This will get all students from the database and display them using the view template found in /students/showAll.html.
+     * 
+     * @param model
+     * @return the name of the view template to render, can be found in the file /students/showAll.html
+     */
     @GetMapping("/students/view")
     public String getAllStudents(Model model) {
         System.out.println("Get all users");
@@ -35,7 +35,7 @@ public class StudentController {
      * Adds a new student to the system.
      *
      * @param newStudent the details of the new student received from the HTTP request
-     * @param response   the HTTP response object
+     * @param response the HTTP response object
      * @return a page indicating that the student has been added, can be found in the file /students/addedStudent.html
      */
     @PostMapping("/students/add")
@@ -51,4 +51,25 @@ public class StudentController {
         // TODO this redirect should probably be something different in the final version.
         return "students/addedStudent";
     }
+
+
+
+    /**
+     * Deletes a student from the system. In theory, the correct way to do this is to use a DELETE request. However, HTML forms only support GET and POST requests, and a DELETE request will need to be sent using JavaScript. Therefore, for simplicity, we use a POST request here.
+     *
+     * @param sid the id of the student to delete
+     * @return a page indicating that the student has been deleted, can be found in the file /students/deletedStudent.html
+     */
+    @PostMapping("/students/delete/{sid}")
+    public String deleteStudent(@PathVariable int sid) {
+        studentRepo.deleteById(sid);
+        return "redirect:/students/view";
+    }
+
+    // The deleteStudent that actually uses a DELETE request.
+    // @DeleteMapping("/students/delete/{sid}")
+    // public String deleteStudent(@PathVariable int sid) {
+    //     studentRepo.deleteById(sid);
+    //     return "students/deletedStudent";
+    // }
 }
