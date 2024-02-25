@@ -3,14 +3,15 @@
  */
 
 // -- Global Variables and Main Code --
-var currentSelectedStudent = {
-    sid: -1,
-    name: "",
-    weight: 0,
-    height: 0,
-    hairColor: "",
-    gpa: 0.0,
-}
+// var currentSelectedStudent = {
+//     sid: -1,
+//     name: "",
+//     weight: 0,
+//     height: 0,
+//     hairColor: "",
+//     gpa: 0.0,
+// }
+var currentSelectedStudentID = -1 // The ID of the currently selected student
 var allStudents = loadStudentDataFromHTML() // An array of all the students, retrieved from the HTML table
 
 // Draw the rectangles for each student
@@ -23,15 +24,9 @@ allStudents.forEach((student) => {
  * Called when the user clicks on a student's Select button.
  */
 function selectedStudent(button) {
-    currentSelectedStudent.sid = button.getAttribute("sid")
-    currentSelectedStudent.name = button.getAttribute("name")
-    currentSelectedStudent.weight = button.getAttribute("weight")
-    currentSelectedStudent.height = button.getAttribute("height")
-    currentSelectedStudent.hairColor = button.getAttribute("hairColor")
-    currentSelectedStudent.gpa = button.getAttribute("gpa")
-
+    currentSelectedStudentID = button.getAttribute("sid")
     updateHtmlAfterSelectingStudent()
-    console.log("Current Selected Student ID: ", currentSelectedStudent.sid)
+    console.log("Current Selected Student ID: ", currentSelectedStudentID)
 }
 
 /**
@@ -40,15 +35,15 @@ function selectedStudent(button) {
 function updateHtmlAfterSelectingStudent() {
     var editForm = document.querySelector(".edit-selected-student-form")
     // Changes the form's action to be editing the selected student
-    editForm.action = "/students/edit/" + currentSelectedStudent.sid
-    editForm.elements["name"].value = currentSelectedStudent.name
-    editForm.elements["weight"].value = currentSelectedStudent.weight
-    editForm.elements["height"].value = currentSelectedStudent.height
-    editForm.elements["hairColor"].value = currentSelectedStudent.hairColor
-    editForm.elements["gpa"].value = currentSelectedStudent.gpa
+    editForm.action = "/students/edit/" + currentSelectedStudentID
+    editForm.elements["name"].value = allStudents.find((student) => student.sid == currentSelectedStudentID).name
+    editForm.elements["weight"].value = allStudents.find((student) => student.sid == currentSelectedStudentID).weight
+    editForm.elements["height"].value = allStudents.find((student) => student.sid == currentSelectedStudentID).height
+    editForm.elements["hairColor"].value = allStudents.find((student) => student.sid == currentSelectedStudentID).hairColor
+    editForm.elements["gpa"].value = allStudents.find((student) => student.sid == currentSelectedStudentID).gpa
 
     document.querySelectorAll(".selected-student").forEach((element) => {
-        element.innerHTML = currentSelectedStudent.sid
+        element.innerHTML = currentSelectedStudentID
     })
 }
 
