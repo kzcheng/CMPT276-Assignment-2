@@ -45,13 +45,24 @@ function updateHtmlAfterSelectingStudent() {
 function drawStudentRectangle(student) {
     // Create the rectangle
     var rectangle = document.createElement("div")
-    rectangle.className = "d-flex p-2 border border-dark m-2" // Add 'm-2' class for margin on all sides
-    rectangle.style.flexGrow = student.weight
-    rectangle.style.height = student.height + "px"
+    rectangle.className = "d-flex p-2 border border-dark m-2"
+    rectangle.style.flexGrow = 0 // Prevent the rectangle from growing
+    rectangle.style.flexShrink = 0 // Prevent the rectangle from shrinking
+    rectangle.style.width = student.weight * 1.5 + "px" // Set a fixed width
+    rectangle.style.height = student.height + "px" // Set a fixed height
+
+    // // Add the student's information
+    // var info = document.createElement("p")
+    // info.innerHTML = `<strong>${student.name}</strong><br>GPA: ${student.gpa}`
+    // rectangle.appendChild(info)
 
     // Add the student's information
     var info = document.createElement("p")
-    info.innerHTML = `<strong>${student.name}</strong><br>GPA: ${student.gpa}`
+    var name = document.createElement("strong")
+    name.style.color = student.hairColor // Set the color of the name to the student's hair color
+    name.textContent = student.name
+    info.appendChild(name)
+    info.innerHTML += `<br>GPA: ${student.gpa}`
     rectangle.appendChild(info)
 
     // Add the rectangle to the container
