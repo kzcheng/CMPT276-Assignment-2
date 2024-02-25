@@ -27,6 +27,14 @@ public class Student {
         this.gpa = gpa;
     }
 
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
     public String getName() {
         return name;
     }
@@ -66,14 +74,4 @@ public class Student {
     public void setGpa(float gpa) {
         this.gpa = gpa;
     }
-
-    public int getSid() {
-        return sid;
-    }
-
-    public void setSid(int sid) {
-        this.sid = sid;
-    }
-
-
 }
