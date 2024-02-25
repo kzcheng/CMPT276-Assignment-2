@@ -94,7 +94,7 @@ public class StudentController {
     }
 
     /**
-     * Edits a student in the system. 
+     * Edits a student in the system.
      */
     @PostMapping("/students/edit/{sid}")
     public String editStudent(@PathVariable int sid, @RequestParam Map<String, String> newStudent, @RequestParam String redirectUrl) {
