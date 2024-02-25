@@ -40,8 +40,6 @@ public class StudentController {
         return "students/main";
     }
 
-
-
     /**
      * Adds a new student to the system.
      */

@@ -10,6 +10,9 @@ var currentSelectedStudent = {
     gpa: 0.0,
 }
 
+drawStudentRectangle({ name: "Alice", weight: 50, height: 100, gpa: 3.5 })
+drawStudentRectangle({ name: "Bob", weight: 20, height: 150, gpa: 2.5 })
+
 // -- Functions --
 function selectedStudent(button) {
     currentSelectedStudent.sid = button.getAttribute("sid")
@@ -35,4 +38,21 @@ function updateHtmlAfterSelectingStudent() {
     document.querySelectorAll(".selected-student").forEach((element) => {
         element.innerHTML = currentSelectedStudent.sid
     })
+}
+
+function drawStudentRectangle(student) {
+    // Create the rectangle
+    var rectangle = document.createElement("div")
+    rectangle.className = "d-flex p-2 border border-dark m-2" // Add 'm-2' class for margin on all sides
+    rectangle.style.flexGrow = student.weight
+    rectangle.style.height = student.height + "px"
+
+    // Add the student's information
+    var info = document.createElement("p")
+    info.innerHTML = `<strong>${student.name}</strong><br>GPA: ${student.gpa}`
+    rectangle.appendChild(info)
+
+    // Add the rectangle to the container
+    var container = document.getElementById("student-rectangle-container")
+    container.appendChild(rectangle)
 }
