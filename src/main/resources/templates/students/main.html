@@ -1,7 +1,6 @@
 <!-- 
     This is the main page of the app.
-    Looking at the assignment guidelines, I think everything can be completed using a single page, simply by hiding elements that are not relevant at the moment.
-    Thus this will be the direction I will take.
+    Everything required for this assignment is done on this main page.
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +17,7 @@
             <h1>Main Page</h1>
         </div>
 
+        <!-- A table listing all students, not required by the assignment but helpful -->
         <main class="container my-5">
             <h2>Students Table</h2>
             <table class="table" id="student-table">
@@ -52,13 +52,15 @@
             </table>
         </main>
 
+        <!-- Rectangle displays of the students, the main focus of this assignment -->
         <main class="container my-5">
             <h2>Rectangle View</h2>
             <div id="student-rectangle-container" class="d-flex flex-wrap">
-                <!-- Student rectangles will be added here by JavaScript -->
+                <!-- Student rectangles will be added here by JavaScript automatically when page loads -->
             </div>
         </main>
 
+        <!-- Form to edit the currently selected student -->
         <main class="container my-5">
             <h2>Edit the Currently Selected Student</h2>
             Currently selected Student ID: <span class="selected-student">None</span>
@@ -73,6 +75,7 @@
             </form>
         </main>
 
+        <!-- Form to add a new student -->
         <main class="container my-5">
             <h2>Add a Student</h2>
             <form action="/students/add" method="post">
@@ -86,9 +89,10 @@
             </form>
         </main>
 
+        <!-- Buttons used for testing purposes -->
+        <!-- Leaving this here to make reviewing this project easier. -->
         <main class="container my-5">
-            <h2>Funny Buttons</h2>
-            Remember to remove this from the main page before release.
+            <h2>Testing Buttons</h2>
             <form th:action="@{/students/fill}" method="post">
                 <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
                 <button type="submit" class="btn btn-primary">Add Testing Data</button>

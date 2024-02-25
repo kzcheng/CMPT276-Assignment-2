@@ -11,13 +11,18 @@ import org.springframework.web.servlet.view.RedirectView;
 import cmpt276.kzcheng.asn2.models.Student;
 import cmpt276.kzcheng.asn2.models.StudentRepository;
 
+/**
+ * This class is a controller for the student database. HTTP requests like GET and POST can be sent here to interact with the database.
+ */
 @Controller
 public class StudentController {
     @Autowired
     private StudentRepository studentRepo;
 
     /**
-     * This method is called before any other method in this class. It is used to populate the model with a list of all students in the database. This list can then be accessed in the view template using the name "st". ...anyway, that's what Copilot said. I'm still not sure if this is a good idea but I want to try and see if it works. Edit: Ok, so it works. As Copilot said, this thing is called every time a method in this class is called. Which means, there are some security and performance concerns. But I guess it's fine for this project.
+     * This method is called before any other method in this class. It is used to populate the model with a list of all students in the database. This list can then be accessed in the view template using the name "st".
+     * 
+     * This thing is called every time a method in this class is called. Which means, there are some security and performance concerns. But I guess it's fine for this project.
      */
     @ModelAttribute("st")
     public List<Student> populateStudents() {
@@ -25,7 +30,7 @@ public class StudentController {
     }
 
     /**
-     * Ok, this is so stupid but it actually works. So, I'm using this to refresh the webpage after doing something. Which means I need to find a way to redirect to the current page the user is on.
+     * A way to grab the current URL, using this to refresh the webpage after doing something.
      */
     @ModelAttribute("currentUrl")
     public String getCurrentUrl(HttpServletRequest request) {
@@ -33,7 +38,7 @@ public class StudentController {
     }
 
     /**
-     * Main page, might be the only page required for this project.
+     * Main page, the only page required for this project.
      */
     @GetMapping("/students")
     public String getMainPage(Model model, HttpServletRequest request, HttpSession session) {
@@ -57,7 +62,9 @@ public class StudentController {
     }
 
     /**
-     * Deletes a student from the system. In theory, the correct way to do this is to use a DELETE request. However, HTML forms only support GET and POST requests, and a DELETE request will need to be sent using JavaScript. Therefore, for simplicity, we use a POST request here.
+     * Deletes a student from the system.
+     * 
+     * In theory, the correct way to do this is to use a DELETE request. However, HTML forms only support GET and POST requests, and a DELETE request will need to be sent using JavaScript. Therefore, for simplicity, we use a POST request here.
      */
     @PostMapping("/students/delete/{sid}")
     public String deleteStudent(@PathVariable int sid, @RequestParam String redirectUrl) {
@@ -66,7 +73,9 @@ public class StudentController {
     }
 
     /**
-     * Deletes all students from the database. This is a dangerous operation and should not be used in a production environment. But this is just an assignment so it's gonna be helpful for the marker to test the application.
+     * Deletes all students from the database.
+     * 
+     * This is a dangerous operation and should not be used in a production environment. But this is just an assignment so it's gonna be helpful for the reviewer to test the application.
      */
     @PostMapping("/students/delete/all")
     public String deleteAllStudents(@RequestParam String redirectUrl) {
@@ -86,7 +95,9 @@ public class StudentController {
     }
 
     /**
-     * After receiving the sid, this method will find the student with that sid from the database. It will then change the student's attributes to the new values provided in the form. Finally, it will save the student back to the database.
+     * After receiving the sid, this method will find the student with that sid from the database.
+     * 
+     * It will then change the student's attributes to the new values provided in the form. Finally, it will save the student back to the database.
      */
     @PostMapping("/students/edit/{sid}")
     public String editStudent(@PathVariable int sid, @RequestParam Map<String, String> newStudent, @RequestParam String redirectUrl) {
@@ -122,42 +133,4 @@ public class StudentController {
     public RedirectView redirectStudentsMain() {
         return new RedirectView("/students");
     }
-
-
-
-    // -- Commented Out Obsolete Code --
-
-    // The deleteStudent that actually uses a DELETE request.
-    // @DeleteMapping("/students/delete/{sid}")
-    // public String deleteStudent(@PathVariable int sid) {
-    //     studentRepo.deleteById(sid);
-    //     return "students/deletedStudent";
-    // }
-
-    // /**
-    //  * Retrieves all students from the database and displays them in the view. We can trigger this by visiting the URL /students/view. This will get all students from the database and display them using the view template found in /students/showAll.html.
-    //  */
-    // @GetMapping("/students/view")
-    // public String getAllStudents(Model model) {
-    //     // This part is being made irrelevant by the populateStudents method.
-    //     // System.out.println("Get all users");
-    //     // // Get all students from the database
-    //     // List<Student> students = studentRepo.findAll();
-    //     // // End of database call.
-    //     // model.addAttribute("st", students);
-    //     return "students/showAll";
-    // }
-
-    // /**
-    //  * Admin page, useful for testing.
-    //  */
-    // @GetMapping("/students/admin")
-    // public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
-    //     return "students/admin";
-    // }
-
-    // @GetMapping("/admin")
-    // public RedirectView redirectAdmin() {
-    //     return new RedirectView("/students/admin");
-    // }
 }

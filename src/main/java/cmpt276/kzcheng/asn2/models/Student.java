@@ -3,7 +3,9 @@ package cmpt276.kzcheng.asn2.models;
 import jakarta.persistence.*;
 
 /**
- * Represents a student with various attributes such as name, weight, height, hair color, and GPA.
+ * The model for a student. This class is used to create a table in the database.
+ * 
+ * Nothing too fancy going on here. Just a bunch of getters and setters, and the constructors to create new students.
  */
 @Entity
 @Table(name = "students")
