@@ -1,3 +1,7 @@
+/**
+ * This is the JavaScript file that the main page uses.
+ */
+
 // -- Global Variables and Main Code --
 var currentSelectedStudent = {
     sid: -1,
@@ -7,16 +11,17 @@ var currentSelectedStudent = {
     hairColor: "",
     gpa: 0.0,
 }
-var allStudents = loadStudentDataFromTable()
+var allStudents = loadStudentDataFromHTML() // An array of all the students, retrieved from the HTML table
 
-var students = loadStudentDataFromTable()
-console.log(students) // Log the student data to the console
-
-students.forEach((student) => {
+// Draw the rectangles for each student
+allStudents.forEach((student) => {
     drawStudentRectangle(student)
 })
 
 // -- Functions --
+/**
+ * Called when the user clicks on a student's Select button.
+ */
 function selectedStudent(button) {
     currentSelectedStudent.sid = button.getAttribute("sid")
     currentSelectedStudent.name = button.getAttribute("name")
@@ -29,8 +34,12 @@ function selectedStudent(button) {
     console.log("Current Selected Student ID: ", currentSelectedStudent.sid)
 }
 
+/**
+ * Updates the HTML to reflect the currently selected student.
+ */
 function updateHtmlAfterSelectingStudent() {
     var editForm = document.querySelector(".edit-selected-student-form")
+    // Changes the form's action to be editing the selected student
     editForm.action = "/students/edit/" + currentSelectedStudent.sid
     editForm.elements["name"].value = currentSelectedStudent.name
     editForm.elements["weight"].value = currentSelectedStudent.weight
@@ -43,6 +52,9 @@ function updateHtmlAfterSelectingStudent() {
     })
 }
 
+/**
+ * Draws a rectangle for the given student.
+ */
 function drawStudentRectangle(student) {
     // Create the rectangle
     var rectangle = document.createElement("div")
@@ -60,7 +72,10 @@ function drawStudentRectangle(student) {
     container.appendChild(rectangle)
 }
 
-function loadStudentDataFromTable() {
+/**
+ * Loads the student data from the HTML table and returns it as an array of objects.
+ */
+function loadStudentDataFromHTML() {
     var tableRows = document.querySelectorAll("#student-table tbody tr")
     var allStudents = []
 
