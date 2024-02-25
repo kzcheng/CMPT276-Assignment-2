@@ -40,13 +40,7 @@ public class StudentController {
         return "students/main";
     }
 
-    // /**
-    //  * Admin page, useful for testing.
-    //  */
-    // @GetMapping("/students/admin")
-    // public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
-    //     return "students/admin";
-    // }
+
 
     /**
      * Adds a new student to the system.
@@ -94,7 +88,7 @@ public class StudentController {
     }
 
     /**
-     * Edits a student in the system.
+     * After receiving the sid, this method will find the student with that sid from the database. It will then change the student's attributes to the new values provided in the form. Finally, it will save the student back to the database.
      */
     @PostMapping("/students/edit/{sid}")
     public String editStudent(@PathVariable int sid, @RequestParam Map<String, String> newStudent, @RequestParam String redirectUrl) {
@@ -131,11 +125,6 @@ public class StudentController {
         return new RedirectView("/students");
     }
 
-    // @GetMapping("/admin")
-    // public RedirectView redirectAdmin() {
-    //     return new RedirectView("/students/admin");
-    // }
-
 
 
     // -- Commented Out Obsolete Code --
@@ -159,5 +148,18 @@ public class StudentController {
     //     // // End of database call.
     //     // model.addAttribute("st", students);
     //     return "students/showAll";
+    // }
+
+    // /**
+    //  * Admin page, useful for testing.
+    //  */
+    // @GetMapping("/students/admin")
+    // public String getAdminPage(Model model, HttpServletRequest request, HttpSession session) {
+    //     return "students/admin";
+    // }
+
+    // @GetMapping("/admin")
+    // public RedirectView redirectAdmin() {
+    //     return new RedirectView("/students/admin");
     // }
 }
