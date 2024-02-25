@@ -9,9 +9,15 @@ var currentSelectedStudent = {
     hairColor: "",
     gpa: 0.0,
 }
+var allStudents = loadStudentDataFromTable()
 
 drawStudentRectangle({ name: "Alice", weight: 50, height: 100, gpa: 3.5 })
 drawStudentRectangle({ name: "Bob", weight: 20, height: 150, gpa: 2.5 })
+
+window.onload = function () {
+    var students = loadStudentDataFromTable()
+    console.log(students) // Log the student data to the console
+}
 
 // -- Functions --
 function selectedStudent(button) {
@@ -55,4 +61,24 @@ function drawStudentRectangle(student) {
     // Add the rectangle to the container
     var container = document.getElementById("student-rectangle-container")
     container.appendChild(rectangle)
+}
+
+function loadStudentDataFromTable() {
+    var tableRows = document.querySelectorAll("#student-table tbody tr")
+    var allStudents = []
+
+    tableRows.forEach(function (row) {
+        var student = {
+            sid: row.cells[0].innerText,
+            name: row.cells[1].innerText,
+            weight: row.cells[2].innerText,
+            height: row.cells[3].innerText,
+            hairColor: row.cells[4].innerText,
+            gpa: row.cells[5].innerText,
+        }
+
+        allStudents.push(student)
+    })
+
+    return allStudents
 }
