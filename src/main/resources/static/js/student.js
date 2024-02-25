@@ -1,5 +1,3 @@
-console.log("student.js loaded.")
-
 // -- Global Variables and Main Code --
 var currentSelectedStudent = {
     sid: -1,
@@ -11,13 +9,12 @@ var currentSelectedStudent = {
 }
 var allStudents = loadStudentDataFromTable()
 
-drawStudentRectangle({ name: "Alice", weight: 50, height: 100, gpa: 3.5 })
-drawStudentRectangle({ name: "Bob", weight: 20, height: 150, gpa: 2.5 })
+var students = loadStudentDataFromTable()
+console.log(students) // Log the student data to the console
 
-window.onload = function () {
-    var students = loadStudentDataFromTable()
-    console.log(students) // Log the student data to the console
-}
+students.forEach((student) => {
+    drawStudentRectangle(student)
+})
 
 // -- Functions --
 function selectedStudent(button) {
