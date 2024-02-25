@@ -3,14 +3,6 @@
  */
 
 // -- Global Variables and Main Code --
-// var currentSelectedStudent = {
-//     sid: -1,
-//     name: "",
-//     weight: 0,
-//     height: 0,
-//     hairColor: "",
-//     gpa: 0.0,
-// }
 var currentSelectedStudentID = -1 // The ID of the currently selected student
 var allStudents = loadStudentDataFromHTML() // An array of all the students, retrieved from the HTML table
 
