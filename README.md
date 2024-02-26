@@ -10,6 +10,16 @@ A small web app designed to track a group of students. Will be able to display s
 
 Deployed on Render.com.
 
+### Screenshots
+TODO: After finalizing UI.
+
+### Testing Buttons
+At the bottom of the page, there are buttons useful for testing the app.
+
+"Add Testing Data" button fills the student database with some testing data. Note that this won't clear the database. It will just add more students to it. And it won't check for duplicates either. So, if you run this method multiple times, you will get multiple copies of the same students in the database. Can be useful for testing displaying extreme amount of students.
+
+"Delete All Students" button deletes all students in the database. Note that the Student table still exists. And the ID numbers won't reset.
+
 
 ## Notes for Marking This
 ### Port ID
@@ -45,3 +55,6 @@ To find the beginning of Assignment 2, you can go to commit [840a809](https://gi
 
 ### Usage of GitKraken in Workflow
 ![GitKraken](<documentation/Screenshot 2024-02-25 103216.png>)
+
+### GitHub Projects
+![GitHub Projects](<documentation/Screenshot 2024-02-25 165053.png>)
