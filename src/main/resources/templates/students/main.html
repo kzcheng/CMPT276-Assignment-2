@@ -11,122 +11,130 @@
         <link href="/student.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" defer></script>
         <script src="/student.js" defer></script>
-        <title>Main Page</title>
+        <title>Student Manager</title>
     </head>
     <body class="justify-content-center">
         <header class="container my-5">
-            <h1>Main Page</h1>
+            <div class="card section-box mx-auto" style="max-width: 600px">
+                <div class="card-body text-center">
+                    <h1 class="display-3" style="font-weight: 500">Student Manager</h1>
+                </div>
+            </div>
         </header>
 
-        <!-- A table listing all students, not required by the assignment but helpful -->
-        <section class="container my-5">
-            <div class="card section-box">
-                <div class="card-body">
-                    <h2 class="mb-3">Students Table</h2>
-                    <table class="table table-hover table-bordered" id="student-table">
-                        <thead class="table-info">
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Weight</th>
-                                <th scope="col">Height</th>
-                                <th scope="col">Hair Color</th>
-                                <th scope="col">GPA</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="student:${st}">
-                                <td th:text="${student.sid}"></td>
-                                <td th:text="${student.name}"></td>
-                                <td th:text="${student.weight}"></td>
-                                <td th:text="${student.height}"></td>
-                                <td th:text="${student.hairColor}"></td>
-                                <td th:text="${student.gpa}"></td>
-                                <td>
-                                    <div class="d-flex gap-1">
-                                        <button type="button" class="btn btn-primary mr-2" th:attr="sid=${student.sid},name=${student.name},weight=${student.weight},height=${student.height},hairColor=${student.hairColor},gpa=${student.gpa}" onclick="selectedStudent(this)">Select</button>
-                                        <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
-                                            <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rectangle displays of the students, the main focus of this assignment -->
-        <section class="container my-5">
-            <div class="card section-box">
-                <div class="card-body">
-                    <h2 class="mb-3">Rectangle View</h2>
-                    <div id="student-rectangle-container" class="d-flex flex-wrap align-items-end border border-dark p-3">
-                        <!-- Student rectangles will be added here by JavaScript automatically when page loads -->
+        <div id="fade-in-body">
+            <!-- A table listing all students, not required by the assignment but helpful -->
+            <section class="container my-5">
+                <div class="card section-box">
+                    <div class="card-body">
+                        <h2 class="mb-3">Students Table</h2>
+                        <table class="table table-hover table-bordered" id="student-table">
+                            <thead class="table-info">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Weight</th>
+                                    <th scope="col">Height</th>
+                                    <th scope="col">Hair Color</th>
+                                    <th scope="col">GPA</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="student:${st}">
+                                    <td th:text="${student.sid}"></td>
+                                    <td th:text="${student.name}"></td>
+                                    <td th:text="${student.weight}"></td>
+                                    <td th:text="${student.height}"></td>
+                                    <td th:text="${student.hairColor}"></td>
+                                    <td th:text="${student.gpa}"></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button type="button" class="btn btn-primary mr-2" th:attr="sid=${student.sid},name=${student.name},weight=${student.weight},height=${student.height},hairColor=${student.hairColor},gpa=${student.gpa}" onclick="selectedStudent(this)">Select</button>
+                                            <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
+                                                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Form to edit the currently selected student -->
-        <section class="container my-5">
-            <div class="card section-box">
-                <div class="card-body">
-                    <h2 class="mb-3">Edit the Currently Selected Student</h2>
-                    <form class="edit-selected-student-form" action="@{/students/edit/-1}" method="post">
-                        <input type="text" class="form-control" name="name" placeholder="Name" /><br />
-                        <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
-                        <input type="text" class="form-control" name="height" placeholder="Height" /><br />
-                        <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
-                        <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
-                        <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                        <button type="submit" class="btn btn-primary">Edit Student</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Form to add a new student -->
-        <section class="container my-5">
-            <div class="card section-box">
-                <div class="card-body">
-                    <h2 class="mb-3">Add a Student</h2>
-                    <form action="/students/add" method="post">
-                        <input type="text" class="form-control" name="name" placeholder="Name" /><br />
-                        <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
-                        <input type="text" class="form-control" name="height" placeholder="Height" /><br />
-                        <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
-                        <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
-                        <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                        <button type="submit" class="btn btn-primary">Add Student</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Buttons used for testing purposes -->
-        <!-- Leaving this here to make reviewing this project easier. -->
-        <section class="container my-5">
-            <div class="card section-box">
-                <div class="card-body">
-                    <h2 class="mb-3">Testing Buttons</h2>
-                    <div class="d-flex gap-2">
-                        <form th:action="@{/students/fill}" method="post">
+            <!-- Form to edit the currently selected student -->
+            <section class="container my-5 edit-section">
+                <div class="card section-box">
+                    <div class="card-body">
+                        <h2 class="mb-3">Edit the Currently Selected Student</h2>
+                        <form class="edit-selected-student-form" action="@{/students/edit/-1}" method="post">
+                            <input type="text" class="form-control" name="name" placeholder="Name" /><br />
+                            <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
+                            <input type="text" class="form-control" name="height" placeholder="Height" /><br />
+                            <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
+                            <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
                             <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                            <button type="submit" class="btn btn-primary">Add Testing Data</button>
-                        </form>
-                        <form th:action="@{/students/delete/all}" method="post">
-                            <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                            <button type="submit" class="btn btn-danger">Delete All Students</button>
+                            <button type="submit" class="btn btn-primary">Edit Student</button>
                         </form>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <footer class="container my-5">Made by Kevin Cheng for CMPT276 @2024</footer>
+            <!-- Rectangle displays of the students, the main focus of this assignment -->
+            <section class="container my-5">
+                <div class="card section-box">
+                    <div class="card-body">
+                        <h2 class="mb-3">Rectangle View</h2>
+                        <div class="card section-box student-rectangle-container-card">
+                            <div id="student-rectangle-container" class="card-body d-flex flex-wrap align-items-end p-3">
+                                <!-- Student rectangles will be added here by JavaScript automatically when page loads -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form to add a new student -->
+            <section class="container my-5">
+                <div class="card section-box">
+                    <div class="card-body">
+                        <h2 class="mb-3">Add a Student</h2>
+                        <form action="/students/add" method="post">
+                            <input type="text" class="form-control" name="name" placeholder="Name" /><br />
+                            <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
+                            <input type="text" class="form-control" name="height" placeholder="Height" /><br />
+                            <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
+                            <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
+                            <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                            <button type="submit" class="btn btn-primary">Add Student</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buttons used for testing purposes -->
+            <!-- Leaving this here to make reviewing this project easier. -->
+            <section class="container my-5">
+                <div class="card section-box">
+                    <div class="card-body">
+                        <h2 class="mb-3">Testing Buttons</h2>
+                        <div class="d-flex gap-2">
+                            <form th:action="@{/students/fill}" method="post">
+                                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                                <button type="submit" class="btn btn-primary">Add Testing Data</button>
+                            </form>
+                            <form th:action="@{/students/delete/all}" method="post">
+                                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                                <button type="submit" class="btn btn-danger">Delete All Students</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="container my-5">Made by Kevin Cheng for CMPT276 @2024</footer>
+        </div>
     </body>
 </html>

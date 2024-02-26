@@ -18,3 +18,16 @@ body {
 .transparent tbody td {
     background-color: transparent;
 }
+
+.student-rectangle-container-card {
+    background-color: white;
+}
+
+.edit-section {
+    display: none;
+}
+
+#fade-in-body {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}

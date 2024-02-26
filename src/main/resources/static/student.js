@@ -6,10 +6,16 @@
 var currentSelectedStudentID = -1 // The ID of the currently selected student
 var allStudents = loadStudentDataFromHTML() // An array of all the students, retrieved from the HTML table
 
-// Draw the rectangles for each student
-allStudents.forEach((student) => {
-    drawStudentRectangle(student)
-})
+// A fancy fade in effect, to wait for the rectangles to be drawn before showing the page
+window.onload = function() {
+    // Draw the rectangles for each student
+    allStudents.forEach((student) => {
+        drawStudentRectangle(student);
+    });
+
+    // After all rectangles are drawn, make the body visible
+    document.getElementById('fade-in-body').style.opacity = "1";
+}
 
 // -- Functions --
 /**
