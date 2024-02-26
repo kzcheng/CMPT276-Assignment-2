@@ -22,6 +22,7 @@
             </div>
         </header>
 
+        <!-- Section that will be faded in -->
         <div id="fade-in-body">
             <!-- A table listing all students, not required by the assignment but helpful -->
             <section class="container my-5">
@@ -50,7 +51,7 @@
                                     <td th:text="${student.gpa}"></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button type="button" class="btn btn-primary mr-2" th:attr="sid=${student.sid},name=${student.name},weight=${student.weight},height=${student.height},hairColor=${student.hairColor},gpa=${student.gpa}" onclick="selectedStudent(this)">Select</button>
+                                            <button type="button" class="btn btn-primary mr-2" th:attr="sid=${student.sid},name=${student.name},weight=${student.weight},height=${student.height},hairColor=${student.hairColor},gpa=${student.gpa}" onclick="selectedStudent(this)">Edit</button>
                                             <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
                                                 <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
                                                 <button type="submit" class="btn btn-danger">Delete</button>
