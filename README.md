@@ -11,7 +11,10 @@ A small web app designed to track a group of students. Will be able to display s
 Deployed on Render.com.
 
 ### Screenshots
-TODO: After finalizing UI.
+![Student Table](<documentation/Screenshot 2024-02-25 194319.png>)
+![Rectangle View](<documentation/Screenshot 2024-02-25 194400.png>)
+![Edit Form](<documentation/Screenshot 2024-02-25 194411.png>)
+![Add Form](<documentation/Screenshot 2024-02-25 194405.png>)
 
 ### Testing Buttons
 At the bottom of the page, there are buttons useful for testing the app.

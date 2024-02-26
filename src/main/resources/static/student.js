@@ -95,6 +95,9 @@ function loadStudentDataFromHTML() {
     return allStudents
 }
 
+/**
+ * Shows the form for editing the selected student.
+ */
 function showEditForm() {
     document.querySelector(".edit-section").style.display = "block"
 }
