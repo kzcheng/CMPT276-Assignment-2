@@ -88,9 +88,14 @@ public class StudentController {
      */
     @PostMapping("/students/fill")
     public String fillTestingData(@RequestParam String redirectUrl) {
-        studentRepo.save(new Student("Ruby", 100, 220, "Red", 4.8f));
+        studentRepo.save(new Student("Ruby", 100, 220, "Red", 4.2f));
         studentRepo.save(new Student("Emerald", 80, 170, "Green", 3.5f));
         studentRepo.save(new Student("Sapphire", 60, 190, "Blue", 3.9f));
+        studentRepo.save(new Student("Coral" , 70, 180, "Coral", 3.2f));
+        studentRepo.save(new Student("Gold", 90, 200, "DarkGoldenRod", 3.7f));
+        studentRepo.save(new Student("Amethyst", 80, 160, "Purple", 3.3f));
+        studentRepo.save(new Student("Pearl", 75, 150, "LightGrey", 3.1f));
+        studentRepo.save(new Student("Grey", 95, 140, "DarkSlateGrey", 3.0f));
         return "redirect:" + redirectUrl;
     }
 
