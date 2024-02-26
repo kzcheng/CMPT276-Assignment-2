@@ -22,7 +22,7 @@
         <section class="container my-5">
             <div class="card section-box">
                 <div class="card-body">
-                    <h2>Students Table</h2>
+                    <h2 class="mb-3">Students Table</h2>
                     <table class="table table-hover table-bordered" id="student-table">
                         <thead class="table-info">
                             <tr>
@@ -44,7 +44,7 @@
                                 <td th:text="${student.hairColor}"></td>
                                 <td th:text="${student.gpa}"></td>
                                 <td>
-                                    <div class="d-flex">
+                                    <div class="d-flex gap-1">
                                         <button type="button" class="btn btn-primary mr-2" th:attr="sid=${student.sid},name=${student.name},weight=${student.weight},height=${student.height},hairColor=${student.hairColor},gpa=${student.gpa}" onclick="selectedStudent(this)">Select</button>
                                         <form th:action="@{/students/delete/{sid}(sid=${student.sid})}" method="post">
                                             <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
@@ -61,53 +61,70 @@
 
         <!-- Rectangle displays of the students, the main focus of this assignment -->
         <section class="container my-5">
-            <h2>Rectangle View</h2>
-            <div id="student-rectangle-container" class="d-flex flex-wrap align-items-end border border-dark p-3">
-                <!-- Student rectangles will be added here by JavaScript automatically when page loads -->
+            <div class="card section-box">
+                <div class="card-body">
+                    <h2 class="mb-3">Rectangle View</h2>
+                    <div id="student-rectangle-container" class="d-flex flex-wrap align-items-end border border-dark p-3">
+                        <!-- Student rectangles will be added here by JavaScript automatically when page loads -->
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Form to edit the currently selected student -->
         <section class="container my-5">
-            <h2>Edit the Currently Selected Student</h2>
-            Currently selected Student ID: <span class="selected-student">None</span>
-            <form class="edit-selected-student-form" action="@{/students/edit/-1}" method="post">
-                <input type="text" class="form-control" name="name" placeholder="Name" /><br />
-                <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
-                <input type="text" class="form-control" name="height" placeholder="Height" /><br />
-                <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
-                <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
-                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                <button type="submit" class="btn btn-primary">Edit Student</button>
-            </form>
+            <div class="card section-box">
+                <div class="card-body">
+                    <h2 class="mb-3">Edit the Currently Selected Student</h2>
+                    <form class="edit-selected-student-form" action="@{/students/edit/-1}" method="post">
+                        <input type="text" class="form-control" name="name" placeholder="Name" /><br />
+                        <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
+                        <input type="text" class="form-control" name="height" placeholder="Height" /><br />
+                        <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
+                        <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
+                        <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                        <button type="submit" class="btn btn-primary">Edit Student</button>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <!-- Form to add a new student -->
         <section class="container my-5">
-            <h2>Add a Student</h2>
-            <form action="/students/add" method="post">
-                <input type="text" class="form-control" name="name" placeholder="Name" /><br />
-                <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
-                <input type="text" class="form-control" name="height" placeholder="Height" /><br />
-                <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
-                <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
-                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                <button type="submit" class="btn btn-primary">Add Student</button>
-            </form>
+            <div class="card section-box">
+                <div class="card-body">
+                    <h2 class="mb-3">Add a Student</h2>
+                    <form action="/students/add" method="post">
+                        <input type="text" class="form-control" name="name" placeholder="Name" /><br />
+                        <input type="text" class="form-control" name="weight" placeholder="Weight" /><br />
+                        <input type="text" class="form-control" name="height" placeholder="Height" /><br />
+                        <input type="text" class="form-control" name="hairColor" placeholder="Hair Color" /><br />
+                        <input type="text" class="form-control" name="gpa" placeholder="GPA" /><br />
+                        <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                        <button type="submit" class="btn btn-primary">Add Student</button>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <!-- Buttons used for testing purposes -->
         <!-- Leaving this here to make reviewing this project easier. -->
         <section class="container my-5">
-            <h2>Testing Buttons</h2>
-            <form th:action="@{/students/fill}" method="post">
-                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                <button type="submit" class="btn btn-primary">Add Testing Data</button>
-            </form>
-            <form th:action="@{/students/delete/all}" method="post">
-                <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
-                <button type="submit" class="btn btn-danger">Delete All Students</button>
-            </form>
+            <div class="card section-box">
+                <div class="card-body">
+                    <h2 class="mb-3">Testing Buttons</h2>
+                    <div class="d-flex gap-2">
+                        <form th:action="@{/students/fill}" method="post">
+                            <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                            <button type="submit" class="btn btn-primary">Add Testing Data</button>
+                        </form>
+                        <form th:action="@{/students/delete/all}" method="post">
+                            <input type="hidden" name="redirectUrl" th:value="${currentUrl}" />
+                            <button type="submit" class="btn btn-danger">Delete All Students</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <footer class="container my-5">Made by Kevin Cheng for CMPT276 @2024</footer>
