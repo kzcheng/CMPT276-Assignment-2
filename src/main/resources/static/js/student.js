@@ -51,11 +51,6 @@ function drawStudentRectangle(student) {
     rectangle.style.width = student.weight * 1.5 + "px" // Set a fixed width
     rectangle.style.height = student.height + "px" // Set a fixed height
 
-    // // Add the student's information
-    // var info = document.createElement("p")
-    // info.innerHTML = `<strong>${student.name}</strong><br>GPA: ${student.gpa}`
-    // rectangle.appendChild(info)
-
     // Add the student's information
     var info = document.createElement("p")
     var name = document.createElement("strong")
