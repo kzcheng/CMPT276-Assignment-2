@@ -39,7 +39,7 @@ For my local development, I have set these environment variables using Windows S
 Some commits may have more details in descriptions. They may be useful to provide more insight.
 
 ### More Insight into my Workflow Available
-If you are interested in seeing more of my workflow, feel free to check out the [GitHub Issue page](https://github.com/kzcheng/CMPT276-Assignment-2/issues) and the [GitHub Projects](https://github.com/users/kzcheng/projects/2) page of this assignment.
+If you are interested in seeing more of my workflow, feel free to check out the [GitHub Issue page](https://github.com/kzcheng/CMPT276-Assignment-2/issues?q=) and the [GitHub Projects](https://github.com/users/kzcheng/projects/2) page of this assignment.
 
 Work that are done will no longer be open, so remember to check not just the open Issues.
 
